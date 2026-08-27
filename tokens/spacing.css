@@ -1,0 +1,27 @@
+/* ORBI Analysis — Spacing scale (4px base, 8px rhythm) */
+:root {
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 56px;
+  --space-11: 64px;
+  --space-12: 80px;
+  --space-13: 96px;
+  --space-14: 128px;
+  --space-15: 160px;
+  --space-16: 200px;
+
+  /* Layout */
+  --container-max: 1240px;
+  --container-narrow: 820px;
+  --gutter: 24px;
+  --section-y: 128px;   /* vertical rhythm between page sections */
+  --section-y-sm: 80px;
+}

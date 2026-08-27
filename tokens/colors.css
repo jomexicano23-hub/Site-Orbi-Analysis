@@ -1,0 +1,100 @@
+/* Esporte em Rota — Color tokens · LIGHT COASTAL theme
+   User palette (brandbook §7 coastal): #00A6A6 teal · #7BDFF2 aqua-sky · #F2E8CF sand · #F4A261 coral · #264653 deep sea
+   Clima: ensolarado, litorâneo, animado — cream/white surfaces, teal + sky accents, coral as the single warm accent. */
+:root {
+  /* ---- Neutral ramp: sea-gray, anchored on brand #264653 (950 = darkest) ---- */
+  --slate-950: #16303a;
+  --slate-900: #1e3a44;
+  --slate-850: #264653; /* brand deep sea */
+  --slate-800: #345460;
+  --slate-750: #45646f;
+  --slate-700: #5c7883;
+  --slate-600: #78939d;
+  --slate-500: #95acb4;
+  --slate-400: #adc0c6;
+  --slate-300: #c8d6d9;
+  --slate-200: #e0e9ea;
+  --slate-100: #eef4f3;
+  --slate-50:  #f7faf9;
+
+  /* ---- Teal / aqua (PRIMARY — user palette #00A6A6) ---- */
+  --cyan-300: #4fc9c4;
+  --cyan-400: #12b3ac;
+  --cyan-500: #00a6a6;
+  --cyan-600: #008c8c;
+  --cyan-700: #007373;
+  --cyan-800: #005f5f; /* official brand teal */
+
+  /* ---- Sky / aqua-blue (SECONDARY — user palette #7BDFF2) ---- */
+  --blue-300: #a6e9f7;
+  --blue-400: #7bdff2; /* palette aqua */
+  --blue-500: #38b6d4;
+  --blue-600: #2196b7;
+  --blue-700: #1a7896;
+
+  /* ---- Deep sea (holographic-secondary slot → coastal ocean blue) ---- */
+  --violet-300: #86c7db;
+  --violet-400: #4ba6c4;
+  --violet-500: #2f8fb0;
+  --violet-600: #237693;
+  --violet-700: #1c6079;
+
+  /* ---- Supporting brand hues (coastal palette) ---- */
+  --teal-500: #00a6a6;
+  --sky-400:  #7bdff2;
+  --sand-200: #f2e8cf;
+
+  /* ---- Coral: the single limited warm accent (scores, live, dates) ---- */
+  --coral-400: #f7b681;
+  --coral-500: #f4a261;
+  --coral-600: #e07f3e;
+
+  /* ---- Semantic status (tuned for light bg) ---- */
+  --positive: #17a06b;
+  --negative: #e5484d;
+  --warning:  #e08a3c;
+  --info:     #2196b7;
+
+  /* =========================================================
+     SEMANTIC ALIASES — prefer these in components
+     ========================================================= */
+  /* Backgrounds & surfaces — warm, sunny cream */
+  --bg:            #fdf9f1;
+  --bg-elevated:   #f6efdf;
+  --surface:       #ffffff;
+  --surface-2:     #f9f4e9;
+  --surface-3:     #f2ebda;
+  --surface-hover: #f5efe3;
+  --surface-inset: #efe7d5;
+
+  /* Glass panels (translucent white, for blur) */
+  --glass:        rgba(255, 255, 255, 0.70);
+  --glass-strong: rgba(255, 255, 255, 0.85);
+
+  /* Text — deep sea ink */
+  --text-strong: #213b46;
+  --text:        #33525d;
+  --text-muted:  #5f7b85;
+  --text-faint:  #8399a0;
+  --on-accent:   #06333a; /* deep ink for use on bright teal/aqua fills */
+
+  /* Borders / hairlines (dark ink on light) */
+  --border-subtle: rgba(38, 70, 83, 0.07);
+  --border:        rgba(38, 70, 83, 0.12);
+  --border-strong: rgba(38, 70, 83, 0.20);
+  --border-glow:   rgba(0, 166, 166, 0.42);
+
+  /* Accents */
+  --accent:        var(--cyan-500);
+  --accent-hover:  var(--cyan-600);
+  --accent-press:  var(--cyan-700);
+  --accent-2:      var(--violet-500);
+  --accent-3:      var(--blue-500);
+  --focus-ring:    rgba(0, 166, 166, 0.50);
+
+  /* Tints (translucent accent washes) */
+  --cyan-tint:   rgba(0, 166, 166, 0.10);
+  --blue-tint:   rgba(123, 223, 242, 0.22);
+  --violet-tint: rgba(47, 143, 176, 0.12);
+  --coral-tint:  rgba(244, 162, 97, 0.16);
+}

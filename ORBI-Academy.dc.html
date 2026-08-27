@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ORBI Academy sua escolinha inteira em um app | Esporte em Rota</title>
+<meta name="description" content="Gestão que organiza a sua escolinha e cursos que ensinam a fazê-la crescer. Matrícula online, financeiro, chamada, treinos, viagens e comunicação com os pais em um app só." />
+<link rel="icon" href="assets/er-logo.png" />
+<link rel="stylesheet" href="styles.css" />
+<script src="image-slot.js"></script>
+<script src="er.js"></script>
+<style>
+  [data-reveal]{opacity:0;}
+  @keyframes erReveal{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
+  @keyframes erScan{0%{transform:translateY(-30%);opacity:0;}12%{opacity:1;}100%{transform:translateY(560%);opacity:0;}}
+  @keyframes erPulse{0%,100%{opacity:.9;transform:scale(1);}50%{opacity:.25;transform:scale(1.5);}}
+  @media (prefers-reduced-motion: reduce){[data-reveal]{opacity:1 !important;transform:none !important;animation:none !important;}*{animation-duration:.001ms !important;animation-iteration-count:1 !important;}}
+</style>
+</helmet>
+
+<div style="background:var(--bg);color:var(--text);overflow-x:hidden;">
+<dc-import name="SiteHeader" lang="{{ lang }}" active="escolinhas" hint-size="100%,68px"></dc-import>
+
+<!-- ================= HERO + VÍDEO ================= -->
+<section style="position:relative;padding:clamp(44px,7vw,84px) 24px clamp(36px,5vw,60px);overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:var(--bg-grid);background-size:var(--bg-grid-size);opacity:.5;pointer-events:none;-webkit-mask-image:radial-gradient(120% 80% at 50% 0,#000 30%,transparent 76%);mask-image:radial-gradient(120% 80% at 50% 0,#000 30%,transparent 76%);"></div>
+  <div style="position:absolute;top:-140px;left:50%;transform:translateX(-50%);width:760px;height:520px;background:var(--glow-radial-cyan);pointer-events:none;"></div>
+
+  <div style="position:relative;max-width:900px;margin:0 auto;text-align:center;">
+    <div data-reveal style="display:inline-flex;align-items:center;gap:10px;padding:7px 15px;border-radius:var(--radius-pill);border:1px solid var(--border-strong);background:var(--surface-inset);margin-bottom:24px;">
+      <img src="assets/orbi-icon.png" alt="ORBI" style="width:20px;height:20px;display:block;" />
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-400);">{{ eyebrow }}</span>
+    </div>
+    <h1 data-reveal data-delay="70" style="font-family:var(--font-display);font-weight:700;font-size:clamp(34px,5.4vw,62px);line-height:1.04;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0 auto 18px;max-width:18ch;">{{ hTitleA }}<span style="background:var(--grad-holo);-webkit-background-clip:text;background-clip:text;color:transparent;">{{ hKey }}</span></h1>
+    <p data-reveal data-delay="140" style="font-size:clamp(16px,1.9vw,20px);line-height:1.6;color:var(--text-muted);max-width:600px;margin:0 auto;">{{ hSub }}</p>
+  </div>
+
+  <div data-reveal data-delay="200" style="position:relative;max-width:1000px;margin:clamp(32px,5vw,48px) auto 0;">
+    <div style="position:relative;border-radius:var(--radius-panel);overflow:hidden;border:1px solid var(--border-strong);box-shadow:var(--glow-cyan-sm),var(--shadow-xl);aspect-ratio:16/9;background:#05070d;">
+      <sc-if value="{{ videoReady }}" hint-placeholder-val="{{ false }}">
+        <video src="{{ localSrc }}" autoplay muted loop playsinline onEnded="{{ loopBg }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></video>
+      </sc-if>
+      <sc-if value="{{ loadingLocal }}" hint-placeholder-val="{{ true }}">
+        <div style="position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 40%,#0c2129,#05070d);"></div>
+      </sc-if>
+      <sc-if value="{{ noMedia }}" hint-placeholder-val="{{ false }}">
+        <image-slot id="academy-demo" shape="rect" fit="cover" placeholder="Solte um vídeo ou still do app ORBI Academy"></image-slot>
+      </sc-if>
+      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,10,16,.4) 0%,rgba(4,10,16,0) 30%,rgba(4,10,16,.55) 100%);"></div>
+      <span style="position:absolute;top:16px;left:16px;width:30px;height:30px;border-top:2px solid var(--cyan-400);border-left:2px solid var(--cyan-400);opacity:.85;pointer-events:none;"></span>
+      <span style="position:absolute;bottom:16px;right:16px;width:30px;height:30px;border-bottom:2px solid var(--cyan-400);border-right:2px solid var(--cyan-400);opacity:.85;pointer-events:none;"></span>
+      <div style="position:absolute;top:20px;left:26px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);pointer-events:none;">{{ videoTag }}</div>
+      <button type="button" onClick="{{ openVideo }}" aria-label="{{ watch }}" style="position:absolute;inset:0;margin:auto;display:inline-flex;align-items:center;gap:14px;width:max-content;height:max-content;padding:10px 24px 10px 10px;border:1px solid rgba(255,255,255,.28);border-radius:var(--radius-pill);background:rgba(6,20,26,.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);cursor:pointer;transition:var(--transition-base);" style-hover="background:rgba(6,20,26,.66);border-color:var(--border-glow);">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:var(--grad-holo);box-shadow:var(--glow-cyan-sm);flex:none;"><svg viewBox="0 0 24 24" width="22" height="22" fill="var(--on-accent)" style="margin-left:3px;"><path d="M8 5v14l11-7z"/></svg></span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:15px;color:#fff;">{{ watch }}</span>
+      </button>
+    </div>
+  </div>
+
+  <div data-reveal data-delay="120" style="max-width:800px;margin:clamp(28px,4vw,40px) auto 0;padding:24px 28px;border-radius:var(--radius-card);background:var(--surface);background-image:var(--grad-surface);border:1px solid var(--border);box-shadow:var(--shadow-card);">
+    <p style="font-size:clamp(15.5px,1.7vw,18px);line-height:1.68;color:var(--text-muted);margin:0;text-align:center;">{{ intro }}</p>
+  </div>
+</section>
+
+<!-- ================= O APP QUE ORGANIZA ================= -->
+<section style="position:relative;padding:clamp(56px,8vw,116px) 24px;background:var(--bg-elevated);overflow:hidden;border-top:1px solid var(--border);">
+  <div style="position:absolute;top:0;left:-8%;width:560px;height:560px;background:var(--glow-radial-cyan);pointer-events:none;"></div>
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+    <div style="max-width:720px;margin-bottom:clamp(34px,5vw,52px);">
+      <div data-reveal style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-400);margin-bottom:16px;">{{ appEyebrow }}</div>
+      <h2 data-reveal data-delay="60" style="font-size:clamp(28px,4.2vw,46px);line-height:1.06;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0;">{{ appTitle }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;">
+      <sc-for list="{{ appItems }}" as="it" hint-placeholder-count="7">
+        <div data-reveal style="padding:26px 24px;border-radius:var(--radius-card);background:var(--surface);background-image:var(--grad-surface);border:1px solid var(--border);box-shadow:var(--shadow-card);transition:var(--transition-base);" style-hover="border-color:var(--border-glow);transform:translateY(-3px);">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--radius-lg);background:var(--cyan-tint);color:var(--cyan-400);border:1px solid rgba(0,166,166,.28);margin-bottom:15px;"><span data-icon="{{ it.icon }}"></span></span>
+          <h3 style="font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--text-strong);margin-bottom:7px;">{{ it.title }}</h3>
+          <p style="font-size:14px;line-height:1.58;color:var(--text-muted);margin:0;">{{ it.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OS CURSOS QUE FAZEM CRESCER ================= -->
+<section style="position:relative;padding:clamp(56px,8vw,116px) 24px;overflow:hidden;">
+  <div style="position:absolute;top:16%;right:-10%;width:560px;height:560px;background:var(--glow-radial-violet);pointer-events:none;"></div>
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+    <div style="max-width:720px;margin-bottom:clamp(34px,5vw,52px);">
+      <div data-reveal style="display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:var(--radius-pill);border:1px solid rgba(124,92,255,.4);background:var(--violet-tint);margin-bottom:18px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--violet-400);box-shadow:0 0 8px var(--violet-400);"></span>
+        <span style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--violet-300);">{{ coursesEyebrow }}</span>
+      </div>
+      <h2 data-reveal data-delay="60" style="font-size:clamp(28px,4.2vw,46px);line-height:1.06;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin-bottom:16px;">{{ coursesTitle }}</h2>
+      <p data-reveal data-delay="120" style="font-size:clamp(15.5px,1.7vw,18px);line-height:1.6;color:var(--text-muted);margin:0;font-style:italic;">{{ coursesSupport }}</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:clamp(28px,4vw,40px);">
+      <sc-for list="{{ courseItems }}" as="c" hint-placeholder-count="4">
+        <div data-reveal style="padding:26px 24px;border-radius:var(--radius-card);background:var(--surface);background-image:var(--grad-surface);border:1px solid var(--border);box-shadow:var(--shadow-card);">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--radius-lg);background:var(--violet-tint);color:var(--violet-400);border:1px solid rgba(124,92,255,.3);margin-bottom:15px;"><span data-icon="{{ c.icon }}"></span></span>
+          <h3 style="font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--text-strong);margin-bottom:7px;">{{ c.title }}</h3>
+          <p style="font-size:14px;line-height:1.58;color:var(--text-muted);margin:0;">{{ c.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <div data-reveal style="display:flex;align-items:center;gap:16px;max-width:640px;padding:26px 30px;border-radius:var(--radius-panel);border:1px solid var(--border-strong);background:var(--surface-2);box-shadow:var(--glow-cyan-sm),var(--shadow-card);">
+      <span style="width:3px;align-self:stretch;min-height:44px;border-radius:2px;background:var(--grad-holo-vert);flex:none;"></span>
+      <p style="font-family:var(--font-display);font-weight:600;font-size:clamp(19px,2.4vw,26px);line-height:1.22;color:var(--text-strong);margin:0;">{{ coursesPunchA }}<span style="background:var(--grad-holo);-webkit-background-clip:text;background-clip:text;color:transparent;">{{ coursesPunchB }}</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POR QUE É DIFERENTE ================= -->
+<section style="position:relative;padding:clamp(56px,8vw,116px) 24px;background:#0c2129;overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);">
+  <div style="position:absolute;inset:0;background-image:var(--bg-dots);background-size:var(--bg-dots-size);opacity:.4;pointer-events:none;"></div>
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+    <div style="text-align:center;max-width:680px;margin:0 auto clamp(34px,5vw,52px);">
+      <div data-reveal style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-300);margin-bottom:16px;">{{ whyEyebrow }}</div>
+      <h2 data-reveal data-delay="60" style="font-size:clamp(28px,4.2vw,46px);line-height:1.06;letter-spacing:var(--tracking-tight);color:#fff;margin:0;">{{ whyTitle }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+      <sc-for list="{{ whyItems }}" as="w" hint-placeholder-count="3">
+        <div data-reveal style="padding:30px 28px;border-radius:var(--radius-card);border:1px solid rgba(255,255,255,.16);background:rgba(8,26,32,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:var(--shadow-lg);">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:var(--radius-lg);background:rgba(0,238,221,.12);color:var(--cyan-300);border:1px solid rgba(0,238,221,.3);margin-bottom:16px;"><span data-icon="{{ w.icon }}"></span></span>
+          <h3 style="font-family:var(--font-display);font-size:18px;font-weight:600;color:#fff;margin-bottom:8px;">{{ w.title }}</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.72);margin:0;">{{ w.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ESCOLHA O SEU PLANO ================= -->
+<section style="position:relative;padding:clamp(56px,8vw,120px) 24px;overflow:hidden;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:820px;height:520px;background:var(--glow-radial-cyan);pointer-events:none;"></div>
+  <div style="position:relative;max-width:1000px;margin:0 auto;">
+    <div style="text-align:center;max-width:680px;margin:0 auto clamp(34px,5vw,52px);">
+      <div data-reveal style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-400);margin-bottom:16px;">{{ planEyebrow }}</div>
+      <h2 data-reveal data-delay="60" style="font-size:clamp(28px,4.2vw,46px);line-height:1.06;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin-bottom:16px;">{{ planTitle }}</h2>
+      <p data-reveal data-delay="120" style="font-size:clamp(15.5px,1.7vw,18px);line-height:1.6;color:var(--text-muted);margin:0;">{{ planSupport }}</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;align-items:stretch;margin-bottom:clamp(30px,4vw,46px);">
+      <sc-for list="{{ plans }}" as="p" hint-placeholder-count="3">
+        <div data-reveal style="position:relative;display:flex;flex-direction:column;padding:30px 26px;border-radius:var(--radius-panel);background:var(--surface);background-image:var(--grad-surface);border:1px solid var(--border);box-shadow:var(--shadow-card);">
+          <sc-if value="{{ p.featured }}">
+            <span style="position:absolute;top:-13px;left:26px;display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:var(--radius-pill);background:var(--grad-holo);color:var(--on-accent);font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;box-shadow:var(--glow-cyan-sm);">{{ recommended }}</span>
+          </sc-if>
+          <div style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-400);margin-bottom:10px;">{{ p.kicker }}</div>
+          <h3 style="font-family:var(--font-display);font-size:23px;font-weight:700;color:var(--text-strong);margin-bottom:8px;">{{ p.name }}</h3>
+          <p style="font-size:14px;line-height:1.55;color:var(--text-muted);margin-bottom:18px;">{{ p.desc }}</p>
+          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:16px;">
+            <span style="font-family:var(--font-display);font-weight:700;font-size:34px;color:var(--text-strong);">{{ p.price }}</span>
+            <span style="font-family:var(--font-mono);font-size:13px;color:var(--text-muted);">{{ perMonth }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;padding-top:16px;border-top:1px solid var(--border);">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:13px;"><span style="color:var(--text-muted);">{{ limitLabel }}</span><span style="font-family:var(--font-mono);color:var(--text-strong);text-align:right;">{{ p.limit }}</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:13px;"><span style="color:var(--text-muted);">{{ supportLabel }}</span><span style="font-family:var(--font-mono);color:var(--text-strong);text-align:right;">{{ p.support }}</span></div>
+          </div>
+          <a href="Agendar-Academy.dc.html" style="margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;font-family:var(--font-display);font-weight:600;font-size:15px;border-radius:var(--radius-button);background:var(--surface-2);color:var(--text-strong);border:1px solid var(--border-strong);text-decoration:none;transition:var(--transition-base);" style-hover="border-color:var(--border-glow);background:var(--surface-hover);">{{ subscribe }}</a>
+        </div>
+      </sc-for>
+    </div>
+
+    <div data-reveal style="overflow-x:auto;border-radius:var(--radius-panel);border:1px solid var(--border);box-shadow:var(--shadow-card);">
+      <table style="width:100%;min-width:660px;border-collapse:collapse;background:var(--surface);">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding:16px 20px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--border);">{{ tblFeature }}</th>
+            <th style="text-align:center;padding:16px 16px;font-family:var(--font-display);font-size:15px;color:var(--text-strong);border-bottom:1px solid var(--border);">{{ col1 }}</th>
+            <th style="text-align:center;padding:16px 16px;font-family:var(--font-display);font-size:15px;color:var(--text-strong);border-bottom:1px solid var(--border);background:var(--cyan-tint);">{{ col2 }}</th>
+            <th style="text-align:center;padding:16px 16px;font-family:var(--font-display);font-size:15px;color:var(--text-strong);border-bottom:1px solid var(--border);">{{ col3 }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ features }}" as="f" hint-placeholder-count="14">
+            <tr>
+              <td style="text-align:left;padding:13px 20px;font-size:13.5px;color:var(--text);border-bottom:1px solid var(--border);">{{ f.label }}</td>
+              <td style="text-align:center;padding:13px 16px;font-family:var(--font-mono);font-size:14px;color:var(--text-strong);border-bottom:1px solid var(--border);">{{ f.c1 }}</td>
+              <td style="text-align:center;padding:13px 16px;font-family:var(--font-mono);font-size:14px;color:var(--text-strong);border-bottom:1px solid var(--border);background:var(--cyan-tint);">{{ f.c2 }}</td>
+              <td style="text-align:center;padding:13px 16px;font-family:var(--font-mono);font-size:14px;color:var(--text-strong);border-bottom:1px solid var(--border);">{{ f.c3 }}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+    <p data-reveal style="text-align:center;font-family:var(--font-mono);font-size:12.5px;letter-spacing:.02em;color:var(--text-faint);margin:22px auto 0;max-width:60ch;">{{ planNote }}</p>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section style="position:relative;padding:clamp(56px,8vw,116px) 24px;background:var(--bg-elevated);overflow:hidden;border-top:1px solid var(--border);">
+  <div style="position:absolute;inset:0;background:var(--grad-holo);opacity:.045;pointer-events:none;"></div>
+  <div style="position:relative;max-width:820px;margin:0 auto;text-align:center;">
+    <h2 data-reveal style="font-size:clamp(28px,4.4vw,50px);line-height:1.06;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin-bottom:28px;">{{ ctaTitle }}</h2>
+    <div data-reveal data-delay="120" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+      <a href="Agendar-Academy.dc.html" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:56px;padding:0 30px;font-family:var(--font-display);font-weight:700;font-size:16px;border-radius:var(--radius-button);background:var(--grad-holo);color:var(--on-accent);box-shadow:var(--shadow-md);text-decoration:none;transition:var(--transition-base);" style-hover="box-shadow:var(--glow-cyan),var(--shadow-md);filter:brightness(1.06);">
+        {{ ctaBtn1 }}
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="https://wa.me/5511944911475" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:56px;padding:0 26px;font-family:var(--font-display);font-weight:600;font-size:16px;border-radius:var(--radius-button);background:var(--surface-2);color:var(--text-strong);border:1px solid var(--border-strong);box-shadow:var(--shadow-sm);text-decoration:none;transition:var(--transition-base);" style-hover="border-color:var(--border-glow);background:var(--surface-hover);">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.437-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+        {{ ctaBtn2 }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+
+<a href="https://wa.me/5511944911475" target="_blank" rel="noopener" aria-label="WhatsApp" style="position:fixed;right:22px;bottom:22px;z-index:1200;display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;background:#25D366;box-shadow:0 8px 24px rgba(37,211,102,.4);color:#fff;text-decoration:none;">
+  <span style="position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:erPulse 2s ease-in-out infinite;"></span>
+  <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.437-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+</a>
+
+<!-- ================= LIGHTBOX ================= -->
+<sc-if value="{{ videoOpen }}">
+  <div onClick="{{ closeVideo }}" style="position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);background:rgba(4,14,18,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);">
+    <div onClick="{{ stopProp }}" style="position:relative;width:min(1120px,94vw);aspect-ratio:16/9;max-height:86vh;border-radius:var(--radius-panel);overflow:hidden;border:1px solid var(--border-glow);box-shadow:var(--glow-cyan),var(--shadow-xl);background:#000;">
+      <button type="button" onClick="{{ closeVideo }}" aria-label="Fechar" style="position:absolute;top:12px;right:12px;z-index:6;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(6,20,26,.72);backdrop-filter:blur(6px);color:#fff;cursor:pointer;transition:var(--transition-base);" style-hover="background:rgba(6,20,26,.94);border-color:var(--border-glow);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      <sc-if value="{{ videoReady }}" hint-placeholder-val="{{ true }}">
+        <video src="{{ localSrc }}" controls autoplay playsinline style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;"></video>
+      </sc-if>
+      <sc-if value="{{ loadingLocal }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 120% at 50% 0,#0c2129,#06141a);color:#fff;font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;">{{ loadingLabel }}</div>
+      </sc-if>
+      <sc-if value="{{ noMedia }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:32px;background:radial-gradient(120% 120% at 50% 0,#0c2129,#06141a);color:#fff;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:66px;height:66px;border-radius:50%;background:var(--grad-holo);box-shadow:var(--glow-cyan-sm);"><svg viewBox="0 0 24 24" width="27" height="27" fill="var(--on-accent)" style="margin-left:3px;"><path d="M8 5v14l11-7z"/></svg></span>
+          <div style="font-family:var(--font-display);font-weight:600;font-size:21px;">{{ mediaSoonTitle }}</div>
+          <div style="font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.72);max-width:440px;">{{ mediaSoonDesc }}</div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1300,&quot;height&quot;:900},&quot;demoVideoSrc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/video-2.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Vídeo&quot;}}">
+class Component extends DCLogic {
+  ICONS = {
+    users: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    check: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
+    wallet: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7"/><path d="M16 12h.01"/></svg>',
+    dumbbell: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11M21 21l-1-1M3 3l1 1M18 22l4-4M2 6l4-4M3 10l7-7M14 21l7-7"/></svg>',
+    timer: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4M12 14l3-3"/><circle cx="12" cy="14" r="8"/></svg>',
+    bus: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6M15 6v6M2 12h19.6M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2V9c0-1-1-2-2-2H4c-1 0-2 1-2 2v5c0 .4.1.8.2 1.2C2.5 16.3 3 18 3 18h3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>',
+    message: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+    tag: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29a1 1 0 0 0 1.42 0l8.58-8.58a1 1 0 0 0 0-1.42z"/><path d="M7 7h.01"/></svg>',
+    megaphone: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>',
+    briefcase: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
+    book: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+    heart: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/></svg>',
+    seedling: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10M12 20v-8M12 12a5 5 0 0 0-5-5H4a5 5 0 0 0 5 5zM12 12a5 5 0 0 1 5-5h3a5 5 0 0 1-5 5z"/></svg>',
+    link: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
+  };
+  state = { lang: (typeof localStorage !== 'undefined' && localStorage.getItem('erlang') === 'en') ? 'en' : 'pt', videoOpen: false, blobSrc: null };
+  componentDidMount() {
+    this._lh = () => this.setState({ lang: (localStorage.getItem('erlang') === 'en') ? 'en' : 'pt' });
+    window.addEventListener('erlang', this._lh);
+    this._esc = (e) => { if (e.key === 'Escape') this.setState({ videoOpen: false }); };
+    window.addEventListener('keydown', this._esc);
+    this._loadVideo();
+    this._paintIcons();
+    this._runFx();
+  }
+  componentDidUpdate(pp, ps) {
+    if (ps.videoOpen !== this.state.videoOpen && typeof document !== 'undefined') {
+      document.body.style.overflow = this.state.videoOpen ? 'hidden' : '';
+    }
+    if (pp.demoVideoSrc !== this.props.demoVideoSrc) {
+      if (this._blob) { URL.revokeObjectURL(this._blob); this._blob = null; }
+      this.setState({ blobSrc: null }, () => this._loadVideo());
+    }
+    this._paintIcons();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('erlang', this._lh);
+    window.removeEventListener('keydown', this._esc);
+    if (typeof document !== 'undefined') document.body.style.overflow = '';
+    if (this._blob) { URL.revokeObjectURL(this._blob); this._blob = null; }
+  }
+  _paintIcons() {
+    if (typeof document === 'undefined') return;
+    document.querySelectorAll('[data-icon]').forEach(el => {
+      const k = el.getAttribute('data-icon');
+      if (el.__k === k) return;
+      el.__k = k;
+      el.innerHTML = this.ICONS[k] || '';
+    });
+  }
+  _runFx() {
+    let tries = 0;
+    const go = () => { if (window.ER && window.ER.fx) window.ER.fx(); else if (tries++ < 40) setTimeout(go, 60); };
+    go();
+  }
+  _loadVideo() {
+    const raw = (this.props.demoVideoSrc || '').trim();
+    if (!raw) return;
+    fetch(raw).then(r => { if (!r.ok) throw new Error('http'); return r.blob(); })
+      .then(b => { this._blob = URL.createObjectURL(b); this.setState({ blobSrc: this._blob }); })
+      .catch(() => { this.setState({ blobSrc: raw }); });
+  }
+  renderVals() {
+    const lang = this.state.lang === 'en' ? 'en' : 'pt';
+    const rawLocal = (this.props.demoVideoSrc || '').trim();
+    const localSrc = this.state.blobSrc || '';
+    const videoReady = !!rawLocal && !!localSrc;
+    const loadingLocal = !!rawLocal && !localSrc;
+    const noMedia = !rawLocal;
+
+    const S = {
+      pt: {
+        eyebrow: 'ORBI Academy',
+        hTitleA: 'Sua escolinha inteira ', hKey: 'em um app.',
+        hSub: 'Gestão que organiza a sua escolinha. Cursos que ensinam a fazê-la crescer.',
+        videoTag: '// Conheça o app', watch: 'Assistir', loadingLabel: 'Carregando vídeo…',
+        intro: 'O ORBI Academy tem dois lados que trabalham juntos: um app que organiza a sua escolinha inteira e cursos que ensinam você a fazê-la crescer.',
+        appEyebrow: '// O app que organiza',
+        appTitle: 'Tudo o que a sua escolinha precisa, em um lugar só.',
+        appItems: [
+          { icon: 'users', title: 'Alunos, turmas e matrícula online', desc: 'Cadastro completo e link para o pai se matricular sozinho.' },
+          { icon: 'check', title: 'Chamada e frequência', desc: 'Com alerta de aluno faltoso.' },
+          { icon: 'wallet', title: 'Financeiro', desc: 'Cobrança de mensalidade automática (PIX, boleto e cartão) e controle de inadimplência.' },
+          { icon: 'dumbbell', title: 'Biblioteca de treinos profissionais', desc: 'Monte a sessão do dia escolhendo de treinos prontos.' },
+          { icon: 'timer', title: 'Controle de jogo ao vivo', desc: 'Cronometre o tempo de cada atleta em campo e rode todos de forma justa.' },
+          { icon: 'bus', title: 'Viagens de jogo', desc: 'O pai confirma a presença, reserva o lugar na van e paga pelo app.' },
+          { icon: 'message', title: 'Comunicação com os pais', desc: 'Avisos, evolução e os vídeos do filho, no app do responsável.' },
+        ],
+        coursesEyebrow: 'Plus opcional',
+        coursesTitle: 'Os cursos que fazem crescer.',
+        coursesSupport: 'Um plus opcional para quem quer ir além da gestão.',
+        courseItems: [
+          { icon: 'tag', title: 'Vendas', desc: 'Vender mensalidade, converter a aula experimental e reter alunos.' },
+          { icon: 'megaphone', title: 'Marketing', desc: 'Divulgação, tráfego pago e conteúdo que atrai matrícula.' },
+          { icon: 'briefcase', title: 'Gestão', desc: 'Precificação, finanças e formalização.' },
+          { icon: 'book', title: 'Metodologia', desc: 'Ensino por faixa etária, para o professor.' },
+        ],
+        coursesPunchA: 'De professor de futebol a ', coursesPunchB: 'empresário do esporte.',
+        whyEyebrow: '// Por que é diferente',
+        whyTitle: 'Não é um sistema genérico.',
+        whyItems: [
+          { icon: 'heart', title: 'Fala também com o pai', desc: 'Frequência, evolução e vídeos do filho no app do responsável.' },
+          { icon: 'seedling', title: 'Nasceu dentro do futebol', desc: 'Não é um sistema genérico adaptado.' },
+          { icon: 'link', title: 'Conecta com o ORBI Analysis', desc: 'Gestão e análise no mesmo ecossistema.' },
+        ],
+        planEyebrow: '// Escolha o seu plano',
+        planTitle: 'Escolha o seu plano.',
+        planSupport: 'Três planos que crescem com a sua escolinha. Escolha por onde começar.',
+        perMonth: '/ mês', subscribe: 'Assinar', recommended: 'Recomendado',
+        limitLabel: 'Limite de alunos', supportLabel: 'Suporte',
+        tblFeature: 'Recurso', col1: 'Essencial', col2: 'Profissional', col3: 'Premium',
+        plans: [
+          { kicker: 'Plano Essencial', name: 'Essencial', desc: 'O essencial para colocar a escolinha em ordem.', price: 'R$ [valor]', limit: 'até 75', support: 'por e-mail', featured: false },
+          { kicker: 'Plano Profissional', name: 'Profissional', desc: 'Gestão completa: financeiro, avaliações e viagens.', price: 'R$ [valor]', limit: '120', support: 'prioritário', featured: true },
+          { kicker: 'Plano Premium', name: 'Premium', desc: 'Tudo, mais jogo ao vivo e os cursos ORBI Academy.', price: 'R$ [valor]', limit: 'ilimitado', support: 'prioritário + consultoria', featured: false },
+        ],
+        features: [
+          { label: 'Alunos, turmas e matrícula online', c1: '✓', c2: '✓', c3: '✓' },
+          { label: 'Chamada e frequência', c1: '✓', c2: '✓', c3: '✓' },
+          { label: 'Comunicação com os pais (avisos, WhatsApp)', c1: '✓', c2: '✓', c3: '✓' },
+          { label: 'App do pai (Sobre / Contato)', c1: '✓', c2: '✓', c3: '✓' },
+          { label: 'Cobrança de mensalidade (PIX, boleto, cartão)', c1: 'Manual', c2: 'Automática', c3: 'Automática' },
+          { label: 'Painel de inadimplência + recibos', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Relatório de faturamento e previsão', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Biblioteca de treinos + montagem de sessão', c1: 'Básica', c2: 'Completa', c3: 'Completa' },
+          { label: 'Jogos e viagens (rateio da van no app)', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Avaliação técnica/física com histórico', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Boletim de evolução do aluno', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Gestão de equipe e permissões', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Controle de jogo ao vivo (tempo por atleta)', c1: '—', c2: '—', c3: '✓' },
+          { label: 'Cursos ORBI Academy (vendas, marketing, gestão)', c1: '—', c2: '—', c3: '✓' },
+        ],
+        planNote: 'Limite de alunos e nível de suporte variam por plano, como mostrado acima. Preços em definição.',
+        ctaTitle: 'Leve o ORBI Academy para a sua escolinha.',
+        ctaBtn1: 'Agendar demonstração', ctaBtn2: 'Falar no WhatsApp',
+        mediaSoonTitle: 'Vídeo em breve', mediaSoonDesc: 'Me envie o vídeo do app ORBI Academy e ele aparece aqui, tocando em tela cheia.',
+      },
+      en: {
+        eyebrow: 'ORBI Academy',
+        hTitleA: 'Your whole academy ', hKey: 'in one app.',
+        hSub: 'Management that organizes your academy. Courses that teach you how to grow it.',
+        videoTag: '// Meet the app', watch: 'Watch', loadingLabel: 'Loading video…',
+        intro: 'ORBI Academy has two sides that work together: an app that organizes your whole academy and courses that teach you how to grow it.',
+        appEyebrow: '// The app that organizes',
+        appTitle: 'Everything your academy needs, in one place.',
+        appItems: [
+          { icon: 'users', title: 'Students, classes and online enrollment', desc: 'Full registration and a link for parents to enroll on their own.' },
+          { icon: 'check', title: 'Attendance', desc: 'With an alert for absent students.' },
+          { icon: 'wallet', title: 'Finance', desc: 'Automatic tuition billing (PIX, boleto and card) and default control.' },
+          { icon: 'dumbbell', title: 'Professional training library', desc: 'Build the day\u2019s session from ready-made drills.' },
+          { icon: 'timer', title: 'Live match control', desc: 'Time each athlete on the pitch and rotate everyone fairly.' },
+          { icon: 'bus', title: 'Match trips', desc: 'Parents confirm attendance, reserve a van seat and pay in the app.' },
+          { icon: 'message', title: 'Parent communication', desc: 'Notices, progress and the kid\u2019s videos, in the parent\u2019s app.' },
+        ],
+        coursesEyebrow: 'Optional plus',
+        coursesTitle: 'The courses that grow your business.',
+        coursesSupport: 'An optional plus for those who want to go beyond management.',
+        courseItems: [
+          { icon: 'tag', title: 'Sales', desc: 'Sell tuition, convert trial classes and retain students.' },
+          { icon: 'megaphone', title: 'Marketing', desc: 'Promotion, paid traffic and content that drives enrollment.' },
+          { icon: 'briefcase', title: 'Management', desc: 'Pricing, finance and formalization.' },
+          { icon: 'book', title: 'Methodology', desc: 'Age-group coaching, for the teacher.' },
+        ],
+        coursesPunchA: 'From football coach to ', coursesPunchB: 'sports entrepreneur.',
+        whyEyebrow: '// Why it\u2019s different',
+        whyTitle: 'Not a generic system.',
+        whyItems: [
+          { icon: 'heart', title: 'It talks to parents too', desc: 'Attendance, progress and the kid\u2019s videos in the parent\u2019s app.' },
+          { icon: 'seedling', title: 'Born inside football', desc: 'Not a generic system adapted to fit.' },
+          { icon: 'link', title: 'Connects with ORBI Analysis', desc: 'Management and analysis in one ecosystem.' },
+        ],
+        planEyebrow: '// Choose your plan',
+        planTitle: 'Choose your plan.',
+        planSupport: 'Three plans that grow with your academy. Choose where to start.',
+        perMonth: '/ month', subscribe: 'Subscribe', recommended: 'Recommended',
+        limitLabel: 'Student limit', supportLabel: 'Support',
+        tblFeature: 'Feature', col1: 'Essential', col2: 'Professional', col3: 'Premium',
+        plans: [
+          { kicker: 'Essential plan', name: 'Essential', desc: 'The essentials to get your academy in order.', price: 'R$ [value]', limit: 'up to 75', support: 'email', featured: false },
+          { kicker: 'Professional plan', name: 'Professional', desc: 'Full management: finance, assessments and trips.', price: 'R$ [value]', limit: '120', support: 'priority', featured: true },
+          { kicker: 'Premium plan', name: 'Premium', desc: 'Everything, plus live match control and ORBI Academy courses.', price: 'R$ [value]', limit: 'unlimited', support: 'priority + consulting', featured: false },
+        ],
+        features: [
+          { label: 'Students, classes and online enrollment', c1: '✓', c2: '✓', c3: '✓' },
+          { label: 'Attendance', c1: '✓', c2: '✓', c3: '✓' },
+          { label: 'Parent communication (notices, WhatsApp)', c1: '✓', c2: '✓', c3: '✓' },
+          { label: 'Parent app (About / Contact)', c1: '✓', c2: '✓', c3: '✓' },
+          { label: 'Tuition billing (PIX, boleto, card)', c1: 'Manual', c2: 'Automatic', c3: 'Automatic' },
+          { label: 'Default panel + receipts', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Revenue report and forecast', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Training library + session builder', c1: 'Basic', c2: 'Full', c3: 'Full' },
+          { label: 'Matches and trips (van cost-sharing in app)', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Technical/physical assessment with history', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Student progress report', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Team management and permissions', c1: '—', c2: '✓', c3: '✓' },
+          { label: 'Live match control (time per athlete)', c1: '—', c2: '—', c3: '✓' },
+          { label: 'ORBI Academy courses (sales, marketing, management)', c1: '—', c2: '—', c3: '✓' },
+        ],
+        planNote: 'Student limit and support level vary by plan, as shown above. Pricing to be defined.',
+        ctaTitle: 'Bring ORBI Academy to your academy.',
+        ctaBtn1: 'Book a demo', ctaBtn2: 'Chat on WhatsApp',
+        mediaSoonTitle: 'Video coming soon', mediaSoonDesc: 'Send me the ORBI Academy app video and it shows up here, playing full-screen.',
+      },
+    }[lang];
+
+    return {
+      lang, videoReady, loadingLocal, noMedia, localSrc,
+      videoOpen: this.state.videoOpen,
+      openVideo: () => this.setState({ videoOpen: true }),
+      closeVideo: () => this.setState({ videoOpen: false }),
+      stopProp: (e) => e.stopPropagation(),
+      loopBg: (e) => { try { e.target.currentTime = 0; e.target.play(); } catch (x) {} },
+      ...S,
+    };
+  }
+}
+</script>
+</body>
+</html>

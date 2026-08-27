@@ -1,0 +1,67 @@
+/* ORBI Analysis — Base reset & element defaults (imported last from styles.css) */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  font-weight: var(--fw-regular);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  font-weight: var(--fw-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+p { text-wrap: pretty; }
+img, svg { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* Links — brand cyan, defined even before links exist so editor-added links inherit brand */
+a { color: var(--accent); text-decoration: none; transition: color var(--dur-base) var(--ease-out); }
+a:hover { color: var(--accent-hover); }
+
+::selection { background: rgba(0, 166, 166, 0.22); color: var(--text-strong); }
+
+/* Form element defaults */
+input::placeholder, textarea::placeholder { color: var(--text-faint); opacity: 1; }
+select option { background: var(--surface-2); color: var(--text-strong); }
+/* Radio checked state (Radio component renders input.orbi-radio + span.orbi-radio-dot) */
+input.orbi-radio:checked + .orbi-radio-dot { border-color: var(--accent); box-shadow: var(--glow-cyan-sm); }
+input.orbi-radio:checked + .orbi-radio-dot::after { content: ''; display: block; width: 10px; height: 10px; border-radius: 50%; background: var(--grad-holo); }
+input.orbi-radio:focus-visible + .orbi-radio-dot { box-shadow: var(--ring); }
+
+/* Light scrollbar */
+* { scrollbar-color: var(--slate-300) transparent; scrollbar-width: thin; }
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb { background: var(--slate-300); border-radius: 999px; border: 2px solid transparent; background-clip: content-box; }
+*::-webkit-scrollbar-thumb:hover { background: var(--slate-400); }
+
+/* Motion primitives */
+@keyframes orbi-spin { to { transform: rotate(360deg); } }
+@keyframes orbi-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+.orbi-spin { animation: orbi-spin 0.8s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .orbi-spin { animation-duration: 2s; }
+}
+
+/* Broadly useful helpers */
+.holo-text {
+  background: var(--grad-holo);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hud-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Esporte em Rota | Tecnologia e dados para o futebol de base</title>
+<meta name="description" content="A Esporte em Rota profissionaliza a formação de atletas com tecnologia e inteligência de dados. Conheça o ORBI Analysis, análise de jogo com IA, e o ORBI Academy, a gestão da sua escolinha em um app." />
+<link rel="icon" href="assets/er-logo.png" />
+<link rel="stylesheet" href="styles.css" />
+<script src="image-slot.js"></script>
+<script src="er.js"></script>
+<style>
+  [data-reveal]{opacity:0;}
+  @keyframes erReveal{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
+  @keyframes erScan{0%{transform:translateY(-30%);opacity:0;}12%{opacity:1;}100%{transform:translateY(560%);opacity:0;}}
+  @keyframes erPulse{0%,100%{opacity:.9;transform:scale(1);}50%{opacity:.25;transform:scale(1.5);}}
+  @keyframes erFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+  @keyframes erDash{to{stroke-dashoffset:-260;}}
+  @media (prefers-reduced-motion: reduce){[data-reveal]{opacity:1 !important;transform:none !important;animation:none !important;}*{animation-duration:.001ms !important;animation-iteration-count:1 !important;}}
+</style>
+</helmet>
+
+<div style="background:var(--bg);color:var(--text);overflow-x:hidden;">
+<dc-import name="SiteHeader" lang="{{ lang }}" active="home" hint-size="100%,68px"></dc-import>
+
+<!-- ================= HERO INSTITUCIONAL ================= -->
+<section style="position:relative;padding:clamp(52px,7vw,104px) 24px clamp(40px,5vw,72px);overflow:hidden;background:#05070d;">
+  <sc-if value="{{ videoReady }}" hint-placeholder-val="{{ false }}">
+    <video src="{{ localSrc }}" autoplay muted loop playsinline onEnded="{{ loopBg }}" style="position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>
+  </sc-if>
+  <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;"><iframe src="{{ ytBgUrl }}" title="Esporte em Rota" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;min-width:177.77vh;min-height:56.25vw;border:0;"></iframe></div>
+  </sc-if>
+  <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(4,10,16,.72) 0%,rgba(4,10,16,.58) 42%,rgba(4,10,16,.68) 78%,rgba(4,10,16,.9) 100%);"></div>
+  <div style="position:absolute;inset:0;z-index:1;background-image:var(--bg-grid);background-size:var(--bg-grid-size);opacity:.25;pointer-events:none;-webkit-mask-image:radial-gradient(130% 90% at 50% 0,#000 32%,transparent 80%);mask-image:radial-gradient(130% 90% at 50% 0,#000 32%,transparent 80%);"></div>
+  <div style="position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:900px;height:560px;z-index:1;background:var(--glow-radial-cyan);pointer-events:none;"></div>
+
+  <div style="position:relative;z-index:2;max-width:980px;margin:0 auto;text-align:center;">
+    <div data-reveal style="display:inline-flex;align-items:center;gap:10px;padding:7px 15px;border-radius:var(--radius-pill);border:1px solid rgba(255,255,255,.2);background:rgba(6,20,26,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);margin-bottom:26px;">
+      <img src="assets/er-mountain-4k.png" alt="Esporte em Rota" style="width:18px;height:18px;object-fit:contain;display:block;" />
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-300);">{{ heroEyebrow }}</span>
+    </div>
+    <h1 data-reveal data-delay="70" style="font-family:var(--font-display);font-weight:700;font-size:clamp(38px,6.4vw,76px);line-height:1.02;letter-spacing:var(--tracking-tight);color:#fff;margin:0 auto 22px;max-width:16ch;">{{ heroA }}<span style="background:var(--grad-holo);-webkit-background-clip:text;background-clip:text;color:transparent;">{{ heroKey }}</span>{{ heroB }}</h1>
+    <p data-reveal data-delay="140" style="font-size:clamp(16px,1.9vw,21px);line-height:1.62;color:rgba(255,255,255,.84);max-width:60ch;margin:0 auto 32px;">{{ heroSub }}</p>
+    <div data-reveal data-delay="200" style="display:flex;flex-wrap:wrap;gap:13px;justify-content:center;">
+      <a href="ORBI-Analysis.dc.html" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:54px;padding:0 28px;font-family:var(--font-display);font-weight:700;font-size:16px;border-radius:var(--radius-button);background:var(--grad-holo);color:var(--on-accent);box-shadow:var(--shadow-md);text-decoration:none;transition:var(--transition-base);" style-hover="box-shadow:var(--glow-cyan),var(--shadow-md);filter:brightness(1.05);">
+        {{ heroCta1 }}
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="ORBI-Academy.dc.html" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:54px;padding:0 26px;font-family:var(--font-display);font-weight:600;font-size:16px;border-radius:var(--radius-button);background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-decoration:none;transition:var(--transition-base);" style-hover="border-color:var(--border-glow);background:rgba(255,255,255,.14);">
+        {{ heroCta2 }}
+      </a>
+    </div>
+    <div data-reveal data-delay="260" style="display:inline-flex;align-items:center;gap:9px;margin-top:22px;font-family:var(--font-mono);font-size:12.5px;color:rgba(255,255,255,.72);">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--cyan-400)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      {{ heroTrust }}
+    </div>
+  </div>
+
+  <!-- faixa de métricas (números são conteúdo) -->
+  <div data-reveal data-delay="120" style="position:relative;z-index:2;max-width:var(--container-max);margin:clamp(40px,5vw,64px) auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-panel);overflow:hidden;background:rgba(255,255,255,.14);box-shadow:var(--shadow-xl);">
+    <div style="background:rgba(8,22,28,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:26px 24px;text-align:center;">
+      <div style="font-family:var(--font-mono);font-weight:700;font-size:clamp(30px,4vw,42px);line-height:1;color:var(--cyan-300);margin-bottom:9px;"><span data-count="100" data-suffix="%">0%</span></div>
+      <div style="font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.7);">{{ statLabel1 }}</div>
+    </div>
+    <div style="background:rgba(8,22,28,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:26px 24px;text-align:center;">
+      <div style="font-family:var(--font-mono);font-weight:700;font-size:clamp(30px,4vw,42px);line-height:1;color:var(--cyan-300);margin-bottom:9px;"><span data-count="2">0</span></div>
+      <div style="font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.7);">{{ statLabel2 }}</div>
+    </div>
+    <div style="background:rgba(8,22,28,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:26px 24px;text-align:center;">
+      <div style="font-family:var(--font-mono);font-weight:700;font-size:clamp(30px,4vw,42px);line-height:1;color:var(--cyan-300);margin-bottom:9px;"><span data-count="10" data-suffix="s">0s</span></div>
+      <div style="font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.7);">{{ statLabel3 }}</div>
+    </div>
+    <div style="background:rgba(8,22,28,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:26px 24px;text-align:center;">
+      <div style="font-family:var(--font-mono);font-weight:700;font-size:clamp(30px,4vw,42px);line-height:1;color:var(--cyan-300);margin-bottom:9px;">IA</div>
+      <div style="font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.7);">{{ statLabel4 }}</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ESSÊNCIA + CONCEITO ROTA ================= -->
+<section style="position:relative;padding:clamp(56px,8vw,116px) 24px;background:var(--bg-elevated);overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div style="position:absolute;top:-40px;left:-80px;width:520px;height:520px;background:var(--glow-radial-cyan);pointer-events:none;"></div>
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);align-items:center;">
+    <div>
+      <div data-reveal style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-600);margin-bottom:16px;">{{ aboutEyebrow }}</div>
+      <h2 data-reveal data-delay="60" style="font-size:clamp(28px,4.2vw,46px);line-height:1.07;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0 0 22px;">{{ aboutTitle }}</h2>
+      <p data-reveal data-delay="120" style="font-size:clamp(16px,1.7vw,18.5px);line-height:1.7;color:var(--text-muted);margin:0 0 18px;">{{ aboutP1 }}</p>
+      <p data-reveal data-delay="160" style="font-size:clamp(16px,1.7vw,18.5px);line-height:1.7;color:var(--text-muted);margin:0;">{{ aboutP2 }}</p>
+    </div>
+    <div data-reveal data-delay="120" style="position:relative;padding:34px 34px;border-radius:var(--radius-panel);background:linear-gradient(160deg,#0c2129,#0a1a20);border:1px solid var(--border-strong);box-shadow:var(--glow-cyan-sm),var(--shadow-lg);overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:var(--bg-dots);background-size:var(--bg-dots-size);opacity:.4;pointer-events:none;"></div>
+      <div style="position:relative;">
+        <div style="display:inline-flex;align-items:center;gap:9px;margin-bottom:16px;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:var(--radius-lg);background:rgba(6,20,26,.5);border:1px solid var(--border-glow);color:var(--cyan-300);"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/></svg></span>
+          <span style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-300);">{{ rotaKicker }}</span>
+        </div>
+        <h3 style="font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2.4vw,26px);line-height:1.22;color:#fff;margin:0 0 14px;">{{ rotaTitle }}</h3>
+        <p style="font-size:15px;line-height:1.68;color:rgba(255,255,255,.8);margin:0;">{{ rotaBody }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALORES ================= -->
+<section style="position:relative;padding:clamp(56px,8vw,116px) 24px;overflow:hidden;">
+  <div style="position:absolute;top:6%;right:-10%;width:520px;height:520px;background:var(--glow-radial-blue);pointer-events:none;"></div>
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+    <div style="max-width:680px;margin-bottom:clamp(34px,5vw,52px);">
+      <div data-reveal style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-600);margin-bottom:16px;">{{ valEyebrow }}</div>
+      <h2 data-reveal data-delay="60" style="font-size:clamp(28px,4.2vw,46px);line-height:1.06;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0;">{{ valTitle }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;">
+      <div data-reveal style="padding:28px 24px;border-radius:var(--radius-card);background:var(--surface);background-image:var(--grad-surface);border:1px solid var(--border);box-shadow:var(--shadow-card);transition:var(--transition-base);" style-hover="border-color:var(--border-glow);transform:translateY(-3px);">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:var(--radius-lg);background:var(--cyan-tint);color:var(--cyan-600);border:1px solid rgba(0,166,166,.28);margin-bottom:16px;"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+        <h3 style="font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--text-strong);margin-bottom:8px;">{{ v1t }}</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:var(--text-muted);margin:0;">{{ v1d }}</p>
+      </div>
+      <div data-reveal data-delay="90" style="padding:28px 24px;border-radius:var(--radius-card);background:var(--surface);background-image:var(--grad-surface);border:1px solid var(--border);box-shadow:var(--shadow-card);transition:var(--transition-base);" style-hover="border-color:var(--border-glow);transform:translateY(-3px);">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:var(--radius-lg);background:var(--cyan-tint);color:var(--cyan-600);border:1px solid rgba(0,166,166,.28);margin-bottom:16px;"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+        <h3 style="font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--text-strong);margin-bottom:8px;">{{ v2t }}</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:var(--text-muted);margin:0;">{{ v2d }}</p>
+      </div>
+      <div data-reveal data-delay="180" style="padding:28px 24px;border-radius:var(--radius-card);background:var(--surface);background-image:var(--grad-surface);border:1px solid var(--border);box-shadow:var(--shadow-card);transition:var(--transition-base);" style-hover="border-color:var(--border-glow);transform:translateY(-3px);">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:var(--radius-lg);background:var(--cyan-tint);color:var(--cyan-600);border:1px solid rgba(0,166,166,.28);margin-bottom:16px;"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3 style="font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--text-strong);margin-bottom:8px;">{{ v3t }}</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:var(--text-muted);margin:0;">{{ v3d }}</p>
+      </div>
+      <div data-reveal data-delay="270" style="padding:28px 24px;border-radius:var(--radius-card);background:var(--surface);background-image:var(--grad-surface);border:1px solid var(--border);box-shadow:var(--shadow-card);transition:var(--transition-base);" style-hover="border-color:var(--border-glow);transform:translateY(-3px);">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:var(--radius-lg);background:var(--cyan-tint);color:var(--cyan-600);border:1px solid rgba(0,166,166,.28);margin-bottom:16px;"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></span>
+        <h3 style="font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--text-strong);margin-bottom:8px;">{{ v4t }}</h3>
+        <p style="font-size:14.5px;line-height:1.6;color:var(--text-muted);margin:0;">{{ v4d }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ECOSSISTEMA: DOIS PRODUTOS ================= -->
+<section style="position:relative;padding:clamp(56px,8vw,116px) 24px;background:var(--bg-elevated);overflow:hidden;border-top:1px solid var(--border);">
+  <div style="position:absolute;inset:0;background-image:var(--bg-dots);background-size:var(--bg-dots-size);opacity:.4;pointer-events:none;"></div>
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+    <div style="text-align:center;max-width:720px;margin:0 auto clamp(36px,5vw,54px);">
+      <div data-reveal style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-600);margin-bottom:16px;">{{ ecoEyebrow }}</div>
+      <h2 data-reveal data-delay="60" style="font-size:clamp(28px,4.2vw,46px);line-height:1.06;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0 0 16px;">{{ ecoTitle }}</h2>
+      <p data-reveal data-delay="120" style="font-size:clamp(16px,1.7vw,18.5px);line-height:1.62;color:var(--text-muted);margin:0;">{{ ecoLead }}</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;">
+      <!-- ORBI Analysis -->
+      <div data-reveal style="display:flex;flex-direction:column;border-radius:var(--radius-panel);overflow:hidden;border:1px solid var(--border-strong);background:var(--surface);box-shadow:var(--glow-cyan-sm),var(--shadow-card);">
+        <div style="position:relative;aspect-ratio:16/10;background:linear-gradient(160deg,#0c2129,#0a1a20);overflow:hidden;">
+          <div style="position:absolute;inset:0;background-image:var(--bg-dots);background-size:var(--bg-dots-size);opacity:.5;pointer-events:none;"></div>
+          <div style="position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(180deg,transparent,rgba(0,166,166,.16),transparent);animation:erScan 5.5s var(--ease-in-out) infinite;pointer-events:none;"></div>
+          <div style="position:absolute;top:16px;left:16px;display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--radius-pill);background:rgba(6,20,26,.6);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.16);">
+            <img src="assets/orbi-icon.png" alt="ORBI" style="width:26px;height:26px;display:block;" />
+            <span style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#fff;">ORBI Analysis</span>
+          </div>
+          <div style="position:absolute;left:16px;bottom:16px;display:flex;gap:8px;">
+            <span style="padding:6px 11px;border-radius:9px;background:rgba(6,20,26,.62);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.14);font-family:var(--font-mono);font-size:11px;color:#fff;"><span style="color:var(--cyan-300);">POSSE</span> 58%</span>
+            <span style="padding:6px 11px;border-radius:9px;background:rgba(6,20,26,.62);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.14);font-family:var(--font-mono);font-size:11px;color:#fff;"><span style="color:var(--cyan-300);">PASSES</span> 214</span>
+          </div>
+        </div>
+        <div style="padding:30px 30px 32px;display:flex;flex-direction:column;flex:1;">
+          <h3 style="font-family:var(--font-display);font-size:clamp(21px,2.4vw,26px);font-weight:700;color:var(--text-strong);margin:0 0 10px;">{{ p1Title }}</h3>
+          <p style="font-size:15px;line-height:1.64;color:var(--text-muted);margin:0 0 18px;">{{ p1Body }}</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:var(--text);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--cyan-500)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px;"><path d="M20 6 9 17l-5-5"/></svg><span>{{ p1a }}</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:var(--text);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--cyan-500)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px;"><path d="M20 6 9 17l-5-5"/></svg><span>{{ p1b }}</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:var(--text);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--cyan-500)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px;"><path d="M20 6 9 17l-5-5"/></svg><span>{{ p1c }}</span></div>
+          </div>
+          <a href="ORBI-Analysis.dc.html" style="margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:9px;height:52px;font-family:var(--font-display);font-weight:700;font-size:15.5px;border-radius:var(--radius-button);background:var(--grad-holo);color:var(--on-accent);box-shadow:var(--shadow-md);text-decoration:none;transition:var(--transition-base);" style-hover="box-shadow:var(--glow-cyan),var(--shadow-md);filter:brightness(1.05);">
+            {{ p1Cta }}
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ORBI Academy -->
+      <div data-reveal data-delay="120" style="display:flex;flex-direction:column;border-radius:var(--radius-panel);overflow:hidden;border:1px solid var(--border-strong);background:var(--surface);box-shadow:var(--glow-cyan-sm),var(--shadow-card);">
+        <div style="position:relative;aspect-ratio:16/10;background:linear-gradient(160deg,#0c2129,#0a1a20);overflow:hidden;">
+          <div style="position:absolute;inset:0;background-image:var(--bg-grid);background-size:var(--bg-grid-size);opacity:.4;pointer-events:none;"></div>
+          <div style="position:absolute;top:16px;left:16px;display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--radius-pill);background:rgba(6,20,26,.6);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.16);">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--cyan-300)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg>
+            <span style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#fff;">ORBI Academy</span>
+          </div>
+          <div style="position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);display:flex;gap:10px;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:rgba(6,20,26,.55);border:1px solid rgba(255,255,255,.16);color:var(--cyan-300);"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></span>
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:rgba(6,20,26,.55);border:1px solid rgba(255,255,255,.16);color:var(--cyan-300);"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></span>
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:rgba(6,20,26,.55);border:1px solid rgba(255,255,255,.16);color:var(--cyan-300);"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          </div>
+        </div>
+        <div style="padding:30px 30px 32px;display:flex;flex-direction:column;flex:1;">
+          <h3 style="font-family:var(--font-display);font-size:clamp(21px,2.4vw,26px);font-weight:700;color:var(--text-strong);margin:0 0 10px;">{{ p2Title }}</h3>
+          <p style="font-size:15px;line-height:1.64;color:var(--text-muted);margin:0 0 18px;">{{ p2Body }}</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:var(--text);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--cyan-500)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px;"><path d="M20 6 9 17l-5-5"/></svg><span>{{ p2a }}</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:var(--text);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--cyan-500)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px;"><path d="M20 6 9 17l-5-5"/></svg><span>{{ p2b }}</span></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:var(--text);"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--cyan-500)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px;"><path d="M20 6 9 17l-5-5"/></svg><span>{{ p2c }}</span></div>
+          </div>
+          <a href="ORBI-Academy.dc.html" style="margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:9px;height:52px;font-family:var(--font-display);font-weight:600;font-size:15.5px;border-radius:var(--radius-button);background:var(--surface-2);color:var(--text-strong);border:1px solid var(--border-strong);text-decoration:none;transition:var(--transition-base);" style-hover="border-color:var(--border-glow);background:var(--surface-hover);">
+            {{ p2Cta }}
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BANDA CINEMÁTICA (FILME DE MARCA) ================= -->
+<section style="position:relative;min-height:clamp(440px,58vw,600px);display:flex;align-items:center;padding:clamp(48px,7vw,96px) 24px;overflow:hidden;background:#05070d;">
+  <sc-if value="{{ videoReady }}" hint-placeholder-val="{{ false }}">
+    <video src="{{ localSrc }}" autoplay muted loop playsinline onEnded="{{ loopBg }}" style="position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;"></video>
+  </sc-if>
+  <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;"><iframe src="{{ ytBgUrl }}" title="Esporte em Rota" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;min-width:177.77vh;min-height:56.25vw;border:0;"></iframe></div>
+  </sc-if>
+  <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(105deg,rgba(4,10,16,.9) 0%,rgba(4,10,16,.72) 42%,rgba(4,10,16,.35) 100%);"></div>
+  <div style="position:absolute;left:0;right:0;top:0;height:150px;z-index:1;background:linear-gradient(180deg,transparent,rgba(0,166,166,.12),transparent);animation:erScan 6s var(--ease-in-out) infinite;pointer-events:none;"></div>
+  <div style="position:relative;z-index:2;max-width:var(--container-max);margin:0 auto;width:100%;">
+    <div data-reveal style="max-width:640px;padding:clamp(26px,3vw,38px);border-radius:var(--radius-panel);background:rgba(6,20,26,.42);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.16);box-shadow:var(--shadow-xl);">
+      <div style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-300);margin-bottom:16px;">{{ bandEyebrow }}</div>
+      <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.6vw,42px);line-height:1.08;letter-spacing:var(--tracking-tight);color:#fff;margin:0 0 18px;">{{ bandTitle }}</h2>
+      <p style="font-size:clamp(15px,1.6vw,18px);line-height:1.66;color:rgba(255,255,255,.82);margin:0 0 26px;">{{ bandLead }}</p>
+      <button type="button" onClick="{{ openVideo }}" style="display:inline-flex;align-items:center;gap:12px;padding:9px 22px 9px 9px;border:1px solid rgba(255,255,255,.28);border-radius:var(--radius-pill);background:rgba(6,20,26,.4);cursor:pointer;transition:var(--transition-base);" style-hover="background:rgba(6,20,26,.66);border-color:var(--border-glow);">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--grad-holo);box-shadow:var(--glow-cyan-sm);flex:none;"><svg viewBox="0 0 24 24" width="20" height="20" fill="var(--on-accent)" style="margin-left:2px;"><path d="M8 5v14l11-7z"/></svg></span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:15px;color:#fff;">{{ bandWatch }}</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section style="position:relative;padding:clamp(64px,9vw,128px) 24px;overflow:hidden;">
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+    <div data-reveal style="position:relative;overflow:hidden;border-radius:var(--radius-panel);border:1px solid var(--border-glow);background:linear-gradient(150deg,#0c2129 0%,#071318 60%,#0a1f27 100%);box-shadow:var(--glow-cyan),var(--shadow-xl);padding:clamp(40px,6vw,72px) clamp(24px,4vw,64px);text-align:center;">
+      <div style="position:absolute;inset:0;background-image:var(--bg-dots);background-size:var(--bg-dots-size);opacity:.35;pointer-events:none;"></div>
+      <div style="position:absolute;top:-140px;left:50%;transform:translateX(-50%);width:760px;height:420px;background:var(--glow-radial-cyan);pointer-events:none;"></div>
+      <div style="position:relative;">
+        <span data-reveal style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:96px;height:96px;border-radius:var(--radius-panel);background:rgba(6,20,26,.55);border:1px solid var(--border-glow);box-shadow:var(--glow-cyan-sm);margin:0 auto 28px;">
+          <img src="assets/er-mountain-4k.png" alt="Esporte em Rota" style="width:82px;height:82px;object-fit:contain;display:block;" />
+        </span>
+        <h2 data-reveal data-delay="60" style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4.6vw,52px);line-height:1.05;letter-spacing:var(--tracking-tight);color:#fff;margin:0 auto 18px;max-width:20ch;">{{ ctaTitle }}</h2>
+        <p data-reveal data-delay="120" style="font-size:clamp(16px,1.9vw,20px);line-height:1.62;color:rgba(255,255,255,.82);max-width:580px;margin:0 auto 36px;">{{ ctaText }}</p>
+        <div data-reveal data-delay="200" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+          <a href="Ativar-Analise.dc.html" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:56px;padding:0 30px;font-family:var(--font-display);font-weight:700;font-size:16px;border-radius:var(--radius-button);background:var(--grad-holo);color:var(--on-accent);box-shadow:var(--shadow-md);text-decoration:none;transition:var(--transition-base);" style-hover="box-shadow:var(--glow-cyan),var(--shadow-md);filter:brightness(1.06);">
+            {{ ctaBtn1 }}
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="https://wa.me/5511944911475" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:56px;padding:0 26px;font-family:var(--font-display);font-weight:600;font-size:16px;border-radius:var(--radius-button);background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.24);text-decoration:none;transition:var(--transition-base);" style-hover="border-color:var(--border-glow);background:rgba(255,255,255,.14);">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.437-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+            {{ ctaBtn2 }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+
+<a href="https://wa.me/5511944911475" target="_blank" rel="noopener" aria-label="WhatsApp" style="position:fixed;right:22px;bottom:22px;z-index:1200;display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;background:#25D366;box-shadow:0 8px 24px rgba(37,211,102,.4);color:#fff;text-decoration:none;">
+  <span style="position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:erPulse 2s ease-in-out infinite;"></span>
+  <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.437-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+</a>
+
+<!-- ================= LIGHTBOX ================= -->
+<sc-if value="{{ videoOpen }}">
+  <div onClick="{{ closeVideo }}" style="position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);background:rgba(4,14,18,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);">
+    <div onClick="{{ stopProp }}" style="position:relative;width:min(1120px,94vw);aspect-ratio:16/9;max-height:86vh;border-radius:var(--radius-panel);overflow:hidden;border:1px solid var(--border-glow);box-shadow:var(--glow-cyan),var(--shadow-xl);background:#000;">
+      <button type="button" onClick="{{ closeVideo }}" aria-label="Fechar" style="position:absolute;top:12px;right:12px;z-index:6;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(6,20,26,.72);backdrop-filter:blur(6px);color:#fff;cursor:pointer;transition:var(--transition-base);" style-hover="background:rgba(6,20,26,.94);border-color:var(--border-glow);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+        <iframe src="{{ ytModalUrl }}" title="Vídeo Esporte em Rota" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+      </sc-if>
+      <sc-if value="{{ videoReady }}" hint-placeholder-val="{{ true }}">
+        <video src="{{ localSrc }}" controls autoplay playsinline style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;"></video>
+      </sc-if>
+      <sc-if value="{{ loadingLocal }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 120% at 50% 0,#0c2129,#06141a);color:#fff;font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;">{{ loadingLabel }}</div>
+      </sc-if>
+      <sc-if value="{{ noMedia }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:32px;background:radial-gradient(120% 120% at 50% 0,#0c2129,#06141a);color:#fff;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:66px;height:66px;border-radius:50%;background:var(--grad-holo);box-shadow:var(--glow-cyan-sm);"><svg viewBox="0 0 24 24" width="27" height="27" fill="var(--on-accent)" style="margin-left:3px;"><path d="M8 5v14l11-7z"/></svg></span>
+          <div style="font-family:var(--font-display);font-weight:600;font-size:21px;">{{ mediaSoonTitle }}</div>
+          <div style="font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.72);max-width:440px;">{{ mediaSoonDesc }}</div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1300,&quot;height&quot;:900},&quot;demoYouTubeId&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Vídeo&quot;},&quot;demoVideoSrc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/video-2.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Vídeo&quot;}}">
+class Component extends DCLogic {
+  state = { lang: (typeof localStorage !== 'undefined' && localStorage.getItem('erlang') === 'en') ? 'en' : 'pt', videoOpen: false, blobSrc: null };
+  componentDidMount() {
+    this._lh = () => this.setState({ lang: (localStorage.getItem('erlang') === 'en') ? 'en' : 'pt' });
+    window.addEventListener('erlang', this._lh);
+    this._esc = (e) => { if (e.key === 'Escape') this.setState({ videoOpen: false }); };
+    window.addEventListener('keydown', this._esc);
+    this._loadVideo();
+    this._runFx();
+  }
+  componentDidUpdate(pp, ps) {
+    if (ps.videoOpen !== this.state.videoOpen && typeof document !== 'undefined') {
+      document.body.style.overflow = this.state.videoOpen ? 'hidden' : '';
+    }
+    if (pp.demoVideoSrc !== this.props.demoVideoSrc || pp.demoYouTubeId !== this.props.demoYouTubeId) {
+      if (this._blob) { URL.revokeObjectURL(this._blob); this._blob = null; }
+      this.setState({ blobSrc: null }, () => this._loadVideo());
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('erlang', this._lh);
+    window.removeEventListener('keydown', this._esc);
+    if (typeof document !== 'undefined') document.body.style.overflow = '';
+    if (this._blob) { URL.revokeObjectURL(this._blob); this._blob = null; }
+  }
+  _runFx() {
+    let tries = 0;
+    const go = () => { if (window.ER && window.ER.fx) window.ER.fx(); else if (tries++ < 40) setTimeout(go, 60); };
+    go();
+  }
+  _loadVideo() {
+    const raw = (this.props.demoVideoSrc || '').trim();
+    const yt = (this.props.demoYouTubeId || '').trim();
+    if (yt || !raw) return;
+    fetch(raw).then(r => { if (!r.ok) throw new Error('http'); return r.blob(); })
+      .then(b => { this._blob = URL.createObjectURL(b); this.setState({ blobSrc: this._blob }); })
+      .catch(() => { this.setState({ blobSrc: raw }); });
+  }
+  renderVals() {
+    const lang = this.state.lang === 'en' ? 'en' : 'pt';
+    const ytId = (this.props.demoYouTubeId || '').trim();
+    const hasVideo = !!ytId;
+    const rawLocal = (this.props.demoVideoSrc || '').trim();
+    const useLocal = !hasVideo && !!rawLocal;
+    const localSrc = this.state.blobSrc || '';
+    const videoReady = useLocal && !!localSrc;
+    const loadingLocal = useLocal && !localSrc;
+    const noMedia = !hasVideo && !rawLocal;
+    const ytBgUrl = hasVideo ? 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&mute=1&loop=1&playlist=' + ytId + '&controls=0&modestbranding=1&playsinline=1&rel=0&disablekb=1&fs=0&iv_load_policy=3' : '';
+    const ytModalUrl = hasVideo ? 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0&modestbranding=1&playsinline=1' : '';
+
+    const S = {
+      pt: {
+        heroEyebrow: 'Esporte em Rota',
+        heroA: 'Tecnologia e dados para ', heroKey: 'profissionalizar a base', heroB: '.',
+        heroSub: 'Substituímos o achismo por evidência. Captação, análise e banco de dados para clubes e escolinhas profissionalizarem a formação e maximizarem o valor da sua base.',
+        heroCta1: 'Conhecer o ORBI Analysis', heroCta2: 'Conhecer o ORBI Academy',
+        heroTrust: 'Do sub-11 ao profissional · Feito no Brasil',
+        statLabel1: 'dos jogos em vídeo e dados', statLabel2: 'câmeras, o campo inteiro', statLabel3: 'antes e depois de cada lance', statLabel4: 'rastreia cada jogador em campo',
+        mockLive: 'Telemetria ao vivo', mockTrend: '+16%', mockTrendLabel: 'na temporada',
+        mockPlayer: '#10', mockSpeed: '11.4 km/h',
+        aboutEyebrow: '// Quem somos',
+        aboutTitle: 'Nascemos dentro do futebol de base.',
+        aboutP1: 'A Esporte em Rota nasceu da experiência de quem viveu a gestão de escolinhas e a falta de estrutura do mercado. Levamos tecnologia de ponta a clubes e escolinhas para que nenhum talento seja invisibilizado por falta de registro.',
+        aboutP2: 'Nosso propósito é democratizar a análise de desempenho profissional no futebol de base, substituindo o achismo por dados concretos que orientam a evolução de cada atleta.',
+        rotaKicker: 'O conceito de Rota',
+        rotaTitle: 'Direção e propósito, além do jogo.',
+        rotaBody: 'Inspirado na Logoterapia de Viktor Frankl, o conceito de Rota é o direcionamento consciente do atleta: as ferramentas analíticas e o sentido de propósito para que ele transcenda na carreira e alcance o topo do seu potencial.',
+        valEyebrow: '// No que acreditamos',
+        valTitle: 'Os valores que guiam a nossa rota.',
+        v1t: 'Inovação aplicada', v1d: 'Tecnologia a serviço do desenvolvimento real em campo.',
+        v2t: 'Alta performance', v2d: 'Busca constante por precisão, evolução e excelência técnica.',
+        v3t: 'Profissionalismo rigoroso', v3d: 'Tratamento sério e corporativo do futebol em todas as etapas.',
+        v4t: 'Visibilidade e prosperidade', v4d: 'Valor econômico e esportivo para atletas, gestores e instituições.',
+        ecoEyebrow: '// O ecossistema',
+        ecoTitle: 'Dois produtos, uma mesma inteligência.',
+        ecoLead: 'Da análise de jogo à gestão da escolinha, a Esporte em Rota conecta dados, vídeo e formação em um só ecossistema.',
+        p1Title: 'ORBI Analysis', p1Body: 'Análise de jogo com inteligência artificial. Uma câmera capta a partida inteira, a IA rastreia cada jogador e transforma o jogo em vídeo, dados e histórico de evolução.',
+        p1a: 'Vídeo panorâmico e melhores momentos automáticos', p1b: 'Rede de passes, posse de bola e mapa de calor', p1c: 'Histórico de cada atleta, temporada após temporada',
+        p1Cta: 'Conhecer o ORBI Analysis',
+        p2Title: 'ORBI Academy', p2Body: 'A sua escolinha inteira em um app. Gestão que organiza a rotina e cursos que ensinam você a fazer o negócio crescer.',
+        p2a: 'Matrícula online, chamada e financeiro automático', p2b: 'Biblioteca de treinos e controle de jogo ao vivo', p2c: 'Comunicação com os pais e cursos de gestão',
+        p2Cta: 'Conhecer o ORBI Academy',
+        bandEyebrow: '// Esporte em Rota',
+        bandTitle: 'A evolução da sua base, mensurada.',
+        bandLead: 'Tecnologia e inteligência de dados para profissionalizar a formação de atletas e maximizar o valor de mercado da sua base.',
+        bandWatch: 'Assistir',
+        ctaTitle: 'Coloque a sua base na rota certa.',
+        ctaText: 'Agende uma demonstração prática e veja como a Esporte em Rota transforma cada jogo em dado e cada escolinha em negócio.',
+        ctaBtn1: 'Agendar demonstração', ctaBtn2: 'Falar no WhatsApp',
+        loadingLabel: 'Carregando vídeo…',
+        mediaSoonTitle: 'Vídeo em breve',
+        mediaSoonDesc: 'Me envie o vídeo institucional e ele aparece aqui, tocando em tela cheia.',
+      },
+      en: {
+        heroEyebrow: 'Esporte em Rota',
+        heroA: 'Technology and data to ', heroKey: 'professionalize the base', heroB: '.',
+        heroSub: 'We replace guesswork with evidence. Capture, analysis and a database so clubs and academies can professionalize development and maximize the value of their base.',
+        heroCta1: 'Explore ORBI Analysis', heroCta2: 'Explore ORBI Academy',
+        heroTrust: 'From U-11 to the pros · Made in Brazil',
+        statLabel1: 'of games in video and data', statLabel2: 'cameras, the whole pitch', statLabel3: 'before and after each play', statLabel4: 'tracks every player on the pitch',
+        mockLive: 'Live telemetry', mockTrend: '+16%', mockTrendLabel: 'this season',
+        mockPlayer: '#10', mockSpeed: '11.4 km/h',
+        aboutEyebrow: '// Who we are',
+        aboutTitle: 'We were born inside youth football.',
+        aboutP1: 'Esporte em Rota was born from the experience of running academies and facing a market with no structure. We bring cutting-edge technology to clubs and academies so no talent is made invisible for lack of a record.',
+        aboutP2: 'Our purpose is to democratize professional performance analysis in youth football, replacing guesswork with concrete data that guides every athlete\u2019s progress.',
+        rotaKicker: 'The Rota concept',
+        rotaTitle: 'Direction and purpose, beyond the game.',
+        rotaBody: 'Inspired by Viktor Frankl\u2019s logotherapy, Rota is the conscious direction of the athlete: the analytical tools and the sense of purpose to transcend in their career and reach the top of their potential.',
+        valEyebrow: '// What we believe',
+        valTitle: 'The values that guide our route.',
+        v1t: 'Applied innovation', v1d: 'Technology serving real development on the pitch.',
+        v2t: 'High performance', v2d: 'A constant pursuit of precision, progress and technical excellence.',
+        v3t: 'Rigorous professionalism', v3d: 'A serious, corporate treatment of football at every stage.',
+        v4t: 'Visibility and prosperity', v4d: 'Economic and sporting value for athletes, managers and institutions.',
+        ecoEyebrow: '// The ecosystem',
+        ecoTitle: 'Two products, one intelligence.',
+        ecoLead: 'From game analysis to academy management, Esporte em Rota connects data, video and development in a single ecosystem.',
+        p1Title: 'ORBI Analysis', p1Body: 'AI-powered game analysis. One camera captures the whole match, the AI tracks every player and turns the game into video, data and a history of progress.',
+        p1a: 'Panoramic video and automatic highlights', p1b: 'Pass network, possession and heatmap', p1c: 'Each athlete\u2019s history, season after season',
+        p1Cta: 'Explore ORBI Analysis',
+        p2Title: 'ORBI Academy', p2Body: 'Your whole academy in one app. Management that organizes the routine and courses that teach you how to grow the business.',
+        p2a: 'Online enrollment, attendance and automatic billing', p2b: 'Training library and live game control', p2c: 'Parent communication and management courses',
+        p2Cta: 'Explore ORBI Academy',
+        bandEyebrow: '// Esporte em Rota',
+        bandTitle: 'Your base\u2019s progress, measured.',
+        bandLead: 'Technology and data intelligence to professionalize athlete development and maximize the market value of your base.',
+        bandWatch: 'Watch',
+        ctaTitle: 'Put your base on the right route.',
+        ctaText: 'Book a hands-on demo and see how Esporte em Rota turns every game into data and every academy into a business.',
+        ctaBtn1: 'Book a demo', ctaBtn2: 'Chat on WhatsApp',
+        loadingLabel: 'Loading video…',
+        mediaSoonTitle: 'Video coming soon',
+        mediaSoonDesc: 'Send me the brand video and it shows up here, playing full-screen.',
+      },
+    }[lang];
+
+    return {
+      lang, hasVideo, videoReady, loadingLocal, noMedia, ytBgUrl, ytModalUrl, localSrc,
+      videoOpen: this.state.videoOpen,
+      openVideo: () => this.setState({ videoOpen: true }),
+      closeVideo: () => this.setState({ videoOpen: false }),
+      stopProp: (e) => e.stopPropagation(),
+      loopBg: (e) => { try { e.target.currentTime = 0; e.target.play(); } catch (x) {} },
+      ...S,
+    };
+  }
+}
+</script>
+</body>
+</html>

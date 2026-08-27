@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sobre a Esporte em Rota: a história de José Mexicano</title>
+<meta name="description" content="Da dor vivida no campo à inovação. A trajetória de José Mexicano e a metodologia C.I.A. que trata o atleta por inteiro: corpo, mente e propósito." />
+<link rel="icon" href="assets/er-logo.png" />
+<link rel="stylesheet" href="styles.css" />
+<script src="er.js"></script>
+<style>
+  [data-reveal]{opacity:0;}
+  @keyframes erReveal{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
+  @keyframes erScan{0%{transform:translateY(-30%);opacity:0;}12%{opacity:1;}100%{transform:translateY(560%);opacity:0;}}
+  @keyframes erPulse{0%,100%{opacity:.9;transform:scale(1);}50%{opacity:.25;transform:scale(1.5);}}
+  @media (prefers-reduced-motion: reduce){[data-reveal]{opacity:1 !important;transform:none !important;animation:none !important;}*{animation-duration:.001ms !important;animation-iteration-count:1 !important;}}
+</style>
+</helmet>
+
+<div style="background:var(--bg);color:var(--text);overflow-x:hidden;">
+<dc-import name="SiteHeader" lang="{{ lang }}" active="sobre" hint-size="100%,68px"></dc-import>
+
+<!-- ================= HERO + FOTO PRINCIPAL ================= -->
+<section style="position:relative;padding:clamp(44px,6vw,84px) 24px clamp(40px,6vw,72px);overflow:hidden;background:#0c2129;border-bottom:1px solid rgba(255,255,255,.08);">
+  <div style="position:absolute;inset:0;background-image:var(--bg-grid);background-size:var(--bg-grid-size);opacity:.4;pointer-events:none;-webkit-mask-image:radial-gradient(130% 90% at 60% 0,#000 30%,transparent 80%);mask-image:radial-gradient(130% 90% at 60% 0,#000 30%,transparent 80%);"></div>
+  <div style="position:absolute;top:-140px;left:-80px;width:640px;height:520px;background:var(--glow-radial-cyan);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-120px;right:-80px;width:520px;height:520px;background:var(--glow-radial-violet);pointer-events:none;"></div>
+
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);align-items:center;">
+    <div>
+      <div data-reveal style="display:inline-flex;align-items:center;gap:10px;padding:7px 15px;border-radius:var(--radius-pill);border:1px solid rgba(255,255,255,.2);background:rgba(6,20,26,.42);margin-bottom:24px;">
+        <img src="assets/er-mountain-4k.png" alt="Esporte em Rota" style="width:18px;height:18px;object-fit:contain;display:block;" />
+        <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-300);">{{ eyebrow }}</span>
+      </div>
+      <h1 data-reveal data-delay="70" style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4.6vw,52px);line-height:1.06;letter-spacing:var(--tracking-tight);color:#fff;margin:0 0 22px;">{{ hA }}<span style="background:var(--grad-holo);-webkit-background-clip:text;background-clip:text;color:transparent;">{{ hKey }}</span></h1>
+      <p data-reveal data-delay="140" style="font-size:clamp(16px,1.8vw,19px);line-height:1.7;color:rgba(255,255,255,.82);max-width:56ch;margin:0;">{{ hLead }}</p>
+    </div>
+
+    <!-- featured portrait -->
+    <div data-reveal data-delay="160" style="position:relative;justify-self:center;width:min(420px,100%);">
+      <div style="position:absolute;inset:-14px;border-radius:calc(var(--radius-panel) + 12px);background:var(--grad-holo);opacity:.5;filter:blur(30px);pointer-events:none;"></div>
+      <div style="position:relative;border-radius:var(--radius-panel);overflow:hidden;border:1px solid var(--border-glow);box-shadow:var(--glow-cyan),var(--shadow-xl);background:linear-gradient(180deg,#0a1a20,#06141a);aspect-ratio:4/5;">
+        <img src="assets/jose-principal.png?v=4" alt="José Mexicano, fundador da Esporte em Rota" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;" />
+        <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,10,16,.1) 0%,rgba(4,10,16,0) 40%,rgba(6,20,26,.72) 100%);"></div>
+        <div style="position:absolute;left:0;right:0;top:0;height:130px;background:linear-gradient(180deg,transparent,rgba(0,166,166,.16),transparent);animation:erScan 6s var(--ease-in-out) infinite;pointer-events:none;"></div>
+        <span style="position:absolute;top:16px;left:16px;width:28px;height:28px;border-top:2px solid var(--cyan-400);border-left:2px solid var(--cyan-400);"></span>
+        <span style="position:absolute;top:16px;right:16px;width:28px;height:28px;border-top:2px solid var(--cyan-400);border-right:2px solid var(--cyan-400);"></span>
+        <span style="position:absolute;bottom:16px;left:16px;width:28px;height:28px;border-bottom:2px solid var(--cyan-400);border-left:2px solid var(--cyan-400);"></span>
+        <span style="position:absolute;bottom:16px;right:16px;width:28px;height:28px;border-bottom:2px solid var(--cyan-400);border-right:2px solid var(--cyan-400);"></span>
+        <div style="position:absolute;left:22px;right:22px;bottom:22px;">
+          <div style="font-family:var(--font-display);font-weight:700;font-size:20px;color:#fff;line-height:1.1;">{{ founderName }}</div>
+          <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan-300);margin-top:5px;">{{ founderRole }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= A NOSSA HISTÓRIA ================= -->
+<section style="position:relative;padding:clamp(56px,8vw,116px) 24px;overflow:hidden;">
+  <div style="position:absolute;top:8%;right:-10%;width:520px;height:520px;background:var(--glow-radial-blue);pointer-events:none;"></div>
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+    <div style="max-width:760px;margin-bottom:clamp(34px,5vw,52px);">
+      <div data-reveal style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-600);margin-bottom:16px;">{{ histEyebrow }}</div>
+      <h2 data-reveal data-delay="60" style="font-size:clamp(28px,4.2vw,46px);line-height:1.06;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0 0 20px;">{{ histTitle }}</h2>
+      <p data-reveal data-delay="120" style="font-size:clamp(16px,1.7vw,18.5px);line-height:1.72;color:var(--text-muted);margin:0;">{{ histLead }}</p>
+    </div>
+
+    <!-- linha do tempo em fotos -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:clamp(34px,5vw,52px);">
+      <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="3">
+        <figure data-reveal style="margin:0;border-radius:var(--radius-panel);overflow:hidden;border:1px solid var(--border);background:var(--surface);box-shadow:var(--shadow-card);">
+          <div style="position:relative;aspect-ratio:4/3;background:#0a1a20;">
+            <img src="{{ t.src }}?v=2" alt="{{ t.cap }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ t.pos }};" />
+            <div style="position:absolute;inset:0;pointer-events:none;background:{{ t.grad }};"></div>
+            <span style="position:absolute;top:12px;left:12px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;color:#fff;padding:4px 9px;border-radius:var(--radius-pill);background:rgba(6,20,26,.62);border:1px solid rgba(255,255,255,.16);">{{ t.year }}</span>
+          </div>
+          <figcaption style="padding:15px 17px;font-size:13.5px;line-height:1.5;color:var(--text-muted);">{{ t.cap }}</figcaption>
+        </figure>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+      <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="2">
+        <div data-reveal style="display:flex;align-items:flex-start;gap:16px;padding:26px 26px;border-radius:var(--radius-card);background:var(--surface);background-image:var(--grad-surface);border:1px solid var(--border);box-shadow:var(--shadow-card);">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:var(--radius-lg);background:var(--cyan-tint);color:var(--cyan-600);border:1px solid rgba(0,166,166,.28);flex:none;"><span data-icon="{{ p.icon }}"></span></span>
+          <div>
+            <h3 style="font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--text-strong);margin:0 0 7px;">{{ p.title }}</h3>
+            <p style="font-size:14.5px;line-height:1.6;color:var(--text-muted);margin:0;">{{ p.desc }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ================= METODOLOGIA C.I.A. ================= -->
+<section style="position:relative;padding:clamp(56px,8vw,116px) 24px;background:#0c2129;overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);">
+  <div style="position:absolute;inset:0;background-image:var(--bg-dots);background-size:var(--bg-dots-size);opacity:.4;pointer-events:none;"></div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:820px;height:520px;background:var(--glow-radial-cyan);pointer-events:none;"></div>
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;">
+    <div style="text-align:center;max-width:720px;margin:0 auto clamp(36px,5vw,54px);">
+      <div data-reveal style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-300);margin-bottom:16px;">{{ ciaEyebrow }}</div>
+      <h2 data-reveal data-delay="60" style="font-size:clamp(28px,4.2vw,46px);line-height:1.06;letter-spacing:var(--tracking-tight);color:#fff;margin:0 auto 18px;max-width:20ch;">{{ ciaTitle }}</h2>
+      <p data-reveal data-delay="120" style="font-size:clamp(15.5px,1.7vw,18px);line-height:1.66;color:rgba(255,255,255,.78);margin:0;">{{ ciaLead }}</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+      <sc-for list="{{ ciaItems }}" as="c" hint-placeholder-count="3">
+        <div data-reveal style="position:relative;padding:30px 28px;border-radius:var(--radius-panel);background:rgba(8,26,32,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);box-shadow:var(--shadow-lg);">
+          <div style="font-family:var(--font-display);font-weight:700;font-size:40px;line-height:1;background:var(--grad-holo);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:16px;">{{ c.letter }}</div>
+          <h3 style="font-family:var(--font-display);font-size:19px;font-weight:600;color:#fff;margin:0 0 9px;">{{ c.title }}</h3>
+          <p style="font-size:14.5px;line-height:1.62;color:rgba(255,255,255,.76);margin:0;">{{ c.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECNOLOGIA E IMPACTO ================= -->
+<section style="position:relative;padding:clamp(56px,8vw,116px) 24px;overflow:hidden;">
+  <div style="position:absolute;top:6%;left:-10%;width:520px;height:520px;background:var(--glow-radial-cyan);pointer-events:none;"></div>
+  <div style="position:relative;max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,56px);align-items:center;">
+    <div data-reveal style="position:relative;border-radius:var(--radius-panel);overflow:hidden;border:1px solid var(--border-strong);box-shadow:var(--glow-cyan-sm),var(--shadow-xl);aspect-ratio:3/2;background:#0a1a20;">
+      <img src="assets/jose-palestra.png?v=3" alt="José Mexicano em palestra" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,10,16,.15),rgba(6,20,26,.5));"></div>
+      <span style="position:absolute;top:14px;left:14px;width:24px;height:24px;border-top:2px solid var(--cyan-400);border-left:2px solid var(--cyan-400);"></span>
+      <span style="position:absolute;bottom:14px;right:14px;width:24px;height:24px;border-bottom:2px solid var(--cyan-400);border-right:2px solid var(--cyan-400);"></span>
+    </div>
+    <div>
+      <div data-reveal style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-600);margin-bottom:16px;">{{ techEyebrow }}</div>
+      <h2 data-reveal data-delay="60" style="font-size:clamp(26px,3.8vw,42px);line-height:1.08;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0 0 18px;">{{ techTitle }}</h2>
+      <p data-reveal data-delay="120" style="font-size:clamp(15.5px,1.7vw,18px);line-height:1.7;color:var(--text-muted);margin:0 0 24px;">{{ techLead }}</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div data-reveal data-delay="160" style="padding:22px 22px;border-radius:var(--radius-card);background:var(--surface);background-image:var(--grad-surface);border:1px solid var(--border);box-shadow:var(--shadow-card);">
+          <div style="font-family:var(--font-mono);font-weight:700;font-size:clamp(26px,3.4vw,34px);line-height:1;color:var(--cyan-600);margin-bottom:8px;">+500</div>
+          <div style="font-size:13.5px;line-height:1.45;color:var(--text-muted);">{{ stat1 }}</div>
+        </div>
+        <div data-reveal data-delay="220" style="padding:22px 22px;border-radius:var(--radius-card);background:var(--surface);background-image:var(--grad-surface);border:1px solid var(--border);box-shadow:var(--shadow-card);">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:11px;background:var(--cyan-tint);color:var(--cyan-600);border:1px solid rgba(0,166,166,.28);margin-bottom:12px;"><span data-icon="database"></span></span>
+          <div style="font-size:13.5px;line-height:1.45;color:var(--text-muted);">{{ stat2 }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FECHO + CTA ================= -->
+<section style="position:relative;padding:clamp(60px,9vw,128px) 24px;overflow:hidden;background:var(--bg-elevated);border-top:1px solid var(--border);">
+  <div style="position:absolute;inset:0;background:var(--grad-holo);opacity:.045;pointer-events:none;"></div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:820px;height:480px;background:var(--glow-radial-cyan);pointer-events:none;"></div>
+  <div style="position:relative;max-width:820px;margin:0 auto;text-align:center;">
+    <h2 data-reveal style="font-family:var(--font-display);font-weight:700;font-size:clamp(26px,4vw,44px);line-height:1.12;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0 auto 32px;max-width:22ch;">{{ closeA }}<span style="background:var(--grad-holo);-webkit-background-clip:text;background-clip:text;color:transparent;">{{ closeKey }}</span></h2>
+    <a href="ORBI-Analysis.dc.html" data-reveal data-delay="120" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:56px;padding:0 30px;font-family:var(--font-display);font-weight:700;font-size:16px;border-radius:var(--radius-button);background:var(--grad-holo);color:var(--on-accent);box-shadow:var(--shadow-md);text-decoration:none;transition:var(--transition-base);" style-hover="box-shadow:var(--glow-cyan),var(--shadow-md);filter:brightness(1.05);">
+      {{ ctaBtn }}
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+
+<a href="https://wa.me/5511944911475" target="_blank" rel="noopener" aria-label="WhatsApp" style="position:fixed;right:22px;bottom:22px;z-index:1200;display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;background:#25D366;box-shadow:0 8px 24px rgba(37,211,102,.4);color:#fff;text-decoration:none;">
+  <span style="position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:erPulse 2s ease-in-out infinite;"></span>
+  <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.002-5.45 4.437-9.884 9.889-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>
+</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1300,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  ICONS = {
+    layers: '<svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5M3 17l9 5 9-5"/></svg>',
+    compass: '<svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg>',
+    cpu: '<svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>',
+    heart: '<svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/><path d="M3.5 12h4l1.5-3 3 6 1.5-3h4"/></svg>',
+    users: '<svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    database: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>',
+  };
+  state = { lang: (typeof localStorage !== 'undefined' && localStorage.getItem('erlang') === 'en') ? 'en' : 'pt' };
+  componentDidMount() {
+    this._lh = () => this.setState({ lang: (localStorage.getItem('erlang') === 'en') ? 'en' : 'pt' });
+    window.addEventListener('erlang', this._lh);
+    this._paintIcons();
+    let tries = 0;
+    const go = () => { if (window.ER && window.ER.fx) window.ER.fx(); else if (tries++ < 40) setTimeout(go, 60); };
+    go();
+  }
+  componentDidUpdate() { this._paintIcons(); }
+  componentWillUnmount() { window.removeEventListener('erlang', this._lh); }
+  _paintIcons() {
+    if (typeof document === 'undefined') return;
+    document.querySelectorAll('[data-icon]').forEach(el => {
+      const k = el.getAttribute('data-icon');
+      if (el.__k === k) return;
+      el.__k = k;
+      el.innerHTML = this.ICONS[k] || '';
+    });
+  }
+  renderVals() {
+    const lang = this.state.lang === 'en' ? 'en' : 'pt';
+    const S = {
+      pt: {
+        eyebrow: 'Sobre a Esporte em Rota',
+        hA: 'O corpo executa. A mente sustenta. ', hKey: 'O humano decide.',
+        hLead: 'A Esporte em Rota nasceu para cobrir a maior lacuna do futebol: a distância entre o talento bruto e o desenvolvimento humano integral. Não enxergamos o atleta apenas como uma função tática, mas como uma história, uma mente e um propósito que exigem tecnologia e estrutura de ponta para performar no mais alto nível.',
+        founderName: 'José Mexicano', founderRole: 'Fundador · Esporte em Rota',
+        histEyebrow: '// A nossa história: da dor à inovação',
+        histTitle: 'Antes de virar plataforma, foi uma dor vivida no campo.',
+        histLead: 'Fundada por José Mexicano, ex-atleta, ex-diretor de franquia do Guarani F.C., educador físico e especialista em Logoterapia, a empresa surgiu ao presenciar centenas de jovens promissores abandonarem seus sonhos por falta de suporte tático, emocional e estrutural.',
+        timeline: [
+          { src: 'assets/jose-time-comeco.png', pos: 'center', year: 'O começo', cap: 'Quando ainda era jogador, nas categorias de base.' },
+          { src: 'assets/jose-franquia-clube.png', pos: 'center 0%', year: 'Guarani F.C.', cap: 'À frente da franquia do Guarani F.C.' },
+          { src: 'assets/jose-bugrinho-new.png', pos: 'center 0%', year: '2017', cap: 'Início da franquia: estágio no Projeto Bugrinho.' },
+        ],
+        pillars: [
+          { icon: 'layers', title: 'Formação multidisciplinar', desc: 'Unimos a ciência do movimento (Educação Física), a análise de desempenho, a análise de mercado, a inteligência estratégica e a análise existencial (Logoterapia) para tratar o futebol com o rigor de uma profissão.' },
+          { icon: 'compass', title: 'Direcionamento com propósito', desc: 'Inspirados por Viktor Frankl, ensinamos que quem tem um porquê enfrenta qualquer como. Cuidar do atleta por inteiro é a única forma de sustentar o rendimento em momentos cruciais.' },
+        ],
+        ciaEyebrow: '// Metodologia C.I.A.',
+        ciaTitle: 'O pilar de alta performance.',
+        ciaLead: 'Um método exclusivo, focado nas exigências do mercado esportivo nacional e internacional.',
+        ciaItems: [
+          { letter: 'C', title: 'Compreensão neuromotora', desc: 'Capacidade de sintetizar dados do jogo e tomar decisões táticas de elite em frações de segundo.' },
+          { letter: 'I', title: 'Inteligência emocional', desc: 'Ferramentas diárias para gerenciar pressão, ansiedade e frustração sem perder o foco.' },
+          { letter: 'A', title: 'Afetividade & família', desc: 'Suporte existencial para o atleta e capacitação para que os pais tomem decisões firmes e conscientes sobre a carreira dos filhos.' },
+        ],
+        techEyebrow: '// Tecnologia e impacto escalável',
+        techTitle: 'A Metodologia C.I.A., levada ao ecossistema digital.',
+        techLead: 'Através de câmeras avançadas, inteligência artificial, dados e análise de vídeo, capturamos o que o olho humano perde e entregamos dados concretos para escolinhas, clubes e famílias.',
+        stat1: 'Atletas impactados: potencial bruto transformado em consistência, caráter e carreira.',
+        stat2: 'Banco de dados & scouting: visibilidade real para a base com imagens e relatórios profissionais.',
+        closeA: 'Jogadas vencem jogos. ', closeKey: 'Pessoas preparadas sustentam carreiras.',
+        ctaBtn: 'Conheça nossa plataforma e soluções',
+      },
+      en: {
+        eyebrow: 'About Esporte em Rota',
+        hA: 'The body executes. The mind sustains. ', hKey: 'The human decides.',
+        hLead: 'Esporte em Rota was born to close football\u2019s biggest gap: the distance between raw talent and whole-person development. We don\u2019t see the athlete as just a tactical function, but as a story, a mind and a purpose that demand top-tier technology and structure to perform at the highest level.',
+        founderName: 'José Mexicano', founderRole: 'Founder · Esporte em Rota',
+        histEyebrow: '// Our story: from pain to innovation',
+        histTitle: 'Before it was a platform, it was a pain lived on the field.',
+        histLead: 'Founded by José Mexicano, former athlete, former Guarani F.C. franchise director, physical educator and Logotherapy specialist, the company was born from watching hundreds of promising youngsters abandon their dreams for lack of tactical, emotional and structural support.',
+        timeline: [
+          { src: 'assets/jose-time-comeco.png', pos: 'center', year: 'The start', cap: 'Back when he was still a player, in the youth ranks.' },
+          { src: 'assets/jose-franquia-clube.png', pos: 'center 0%', year: 'Guarani F.C.', cap: 'Leading the Guarani F.C. franchise.' },
+          { src: 'assets/jose-bugrinho-new.png', pos: 'center 0%', year: '2017', cap: 'The franchise begins: internship at Projeto Bugrinho.' },
+        ],
+        pillars: [
+          { icon: 'layers', title: 'Multidisciplinary training', desc: 'We combine movement science (Physical Education), strategic intelligence and existential analysis (Logotherapy) to treat football with the rigor of a profession.' },
+          { icon: 'compass', title: 'Direction with purpose', desc: 'Inspired by Viktor Frankl, we teach that whoever has a why can bear almost any how. Caring for the whole athlete is the only way to sustain performance in crucial moments.' },
+        ],
+        ciaEyebrow: '// C.I.A. Methodology',
+        ciaTitle: 'The pillar of high performance.',
+        ciaLead: 'An exclusive method, focused on the demands of the national and international sports market.',
+        ciaItems: [
+          { letter: 'C', title: 'Neuromotor comprehension', desc: 'The ability to synthesize game data and make elite tactical decisions in fractions of a second.' },
+          { letter: 'I', title: 'Emotional intelligence', desc: 'Daily tools to manage pressure, anxiety and frustration without losing focus.' },
+          { letter: 'A', title: 'Affection & family', desc: 'Existential support for the athlete and training so parents make firm, conscious decisions about their children\u2019s careers.' },
+        ],
+        techEyebrow: '// Technology and scalable impact',
+        techTitle: 'The C.I.A. Methodology, taken to the digital ecosystem.',
+        techLead: 'Through advanced cameras, artificial intelligence, data and video analysis, we capture what the human eye misses and deliver concrete data to academies, clubs and families.',
+        stat1: 'Athletes impacted: raw potential turned into consistency, character and career.',
+        stat2: 'Database & scouting: real visibility for the base with professional footage and reports.',
+        closeA: 'Plays win games. ', closeKey: 'Prepared people sustain careers.',
+        ctaBtn: 'Discover our platform and solutions',
+      },
+    }[lang];
+    if (Array.isArray(S.timeline)) {
+      S.timeline = S.timeline.map(t => ({
+        ...t,
+        grad: t.light
+          ? 'linear-gradient(180deg,rgba(4,10,16,0) 55%,rgba(6,20,26,.28))'
+          : 'linear-gradient(180deg,rgba(4,10,16,.05),rgba(6,20,26,.5))'
+      }));
+    }
+    return { lang, ...S };
+  }
+}
+</script>
+</body>
+</html>

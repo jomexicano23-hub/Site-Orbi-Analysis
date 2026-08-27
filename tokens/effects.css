@@ -1,0 +1,40 @@
+/* Esporte em Rota — Effects: gradients, motion, backgrounds, blur · LIGHT COASTAL
+   Signature = teal -> aqua-sky -> deep sea; warm coral glow for the "sunny" ambient. */
+:root {
+  /* Signature gradients (mid-tone so they read as text on cream AND take dark ink on fills) */
+  --grad-holo: linear-gradient(100deg, #00a6a6 0%, #0a93a8 52%, #1f83a8 100%); /* @kind color */
+  --grad-holo-vert: linear-gradient(180deg, #00a6a6 0%, #0a93a8 50%, #1f83a8 100%); /* @kind color */
+  --grad-holo-soft: linear-gradient(100deg, rgba(0, 166, 166, 0.92), rgba(31, 131, 168, 0.92)); /* @kind color */
+
+  /* Surface gradient: soft top highlight on white cards */
+  --grad-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(38, 70, 83, 0) 46%); /* @kind color */
+  --grad-panel: linear-gradient(165deg, rgba(0, 166, 166, 0.07), rgba(123, 223, 242, 0.06)); /* @kind color */
+
+  /* Hero / ambient radial glows (place behind content) — teal, sunny coral, sky */
+  --glow-radial-cyan: radial-gradient(60% 60% at 50% 40%, rgba(0, 166, 166, 0.16), transparent 70%); /* @kind color */
+  --glow-radial-violet: radial-gradient(55% 55% at 70% 30%, rgba(244, 162, 97, 0.18), transparent 70%); /* @kind color */
+  --glow-radial-blue: radial-gradient(50% 50% at 30% 60%, rgba(123, 223, 242, 0.24), transparent 72%); /* @kind color */
+
+  /* Data-grid + dot-matrix motifs (tracking/analysis feel) — dark ink on light */
+  --bg-grid: linear-gradient(rgba(38, 70, 83, 0.05) 1px, transparent 1px),
+             linear-gradient(90deg, rgba(38, 70, 83, 0.05) 1px, transparent 1px); /* @kind other */
+  --bg-grid-size: 48px 48px; /* @kind other */
+  --bg-dots: radial-gradient(rgba(38, 70, 83, 0.09) 1px, transparent 1.4px); /* @kind other */
+  --bg-dots-size: 22px 22px; /* @kind other */
+
+  /* Blur (glass panels, backdrop) */
+  --blur-panel: 16px; /* @kind other */
+  --blur-nav: 12px; /* @kind other */
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --dur-fast: 120ms; /* @kind other */
+  --dur-base: 200ms; /* @kind other */
+  --dur-slow: 360ms; /* @kind other */
+  --transition-base: all var(--dur-base) var(--ease-out); /* @kind other */
+
+  /* Global glow intensity multiplier (wired to the "glow" Tweak) */
+  --fx-glow: 1; /* @kind other */
+}

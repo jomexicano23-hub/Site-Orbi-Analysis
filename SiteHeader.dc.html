@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="styles.css">
+</helmet>
+<header style="position:sticky;top:0;z-index:1000;background:var(--glass-strong);backdrop-filter:blur(var(--blur-nav));-webkit-backdrop-filter:blur(var(--blur-nav));border-bottom:1px solid var(--border);">
+  <div style="max-width:var(--container-max);margin:0 auto;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+    <a href="Home.dc.html" style="display:inline-flex;align-items:center;gap:11px;text-decoration:none;flex:none;">
+      <img src="assets/er-logo.png" alt="Esporte em Rota" style="height:56px;width:auto;display:block;" />
+    </a>
+
+    <sc-if value="{{ showDesktop }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:2px;">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+          <a href="{{ item.href }}" style="{{ item.style }}" style-hover="color:var(--text-strong);">{{ item.label }}</a>
+        </sc-for>
+      </nav>
+    </sc-if>
+
+    <div style="display:flex;align-items:center;gap:12px;flex:none;">
+      <div style="display:flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--border);border-radius:9px;background:var(--surface-inset);">
+        <button onClick="{{ setPt }}" style="{{ ptStyle }}" aria-label="Português">PT</button>
+        <button onClick="{{ setEn }}" style="{{ enStyle }}" aria-label="English">EN</button>
+      </div>
+      <sc-if value="{{ showDesktop }}" hint-placeholder-val="{{ true }}">
+        <a href="Ativar-Analise.dc.html" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 18px;font-family:var(--font-display);font-weight:600;font-size:14px;border-radius:var(--radius-button);border:1px solid transparent;background:var(--grad-holo);color:var(--on-accent);box-shadow:var(--shadow-md);text-decoration:none;white-space:nowrap;transition:var(--transition-base);" style-hover="box-shadow:var(--glow-cyan),var(--shadow-md);filter:brightness(1.06);">
+          {{ cta }}
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </sc-if>
+      <sc-if value="{{ mobile }}">
+        <button onClick="{{ toggleMenu }}" aria-label="Menu" style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:var(--radius-button);border:1px solid var(--border-strong);background:var(--surface-2);color:var(--text-strong);cursor:pointer;transition:var(--transition-base);">
+          <sc-if value="{{ open }}"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></sc-if>
+          <sc-if value="{{ closed }}" hint-placeholder-val="{{ true }}"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></sc-if>
+        </button>
+      </sc-if>
+    </div>
+  </div>
+
+  <sc-if value="{{ open }}">
+    <div style="border-top:1px solid var(--border);background:var(--glass-strong);backdrop-filter:blur(var(--blur-nav));padding:14px 24px 20px;display:flex;flex-direction:column;gap:6px;">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+        <a href="{{ item.href }}" style="{{ item.mstyle }}">{{ item.label }}</a>
+      </sc-for>
+      <a href="Ativar-Analise.dc.html" style="margin-top:8px;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;font-family:var(--font-display);font-weight:600;font-size:15px;border-radius:var(--radius-button);background:var(--grad-holo);color:var(--on-accent);box-shadow:var(--shadow-md);text-decoration:none;">
+        {{ cta }}
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:68},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;pt&quot;,&quot;en&quot;],&quot;default&quot;:&quot;pt&quot;,&quot;tsType&quot;:&quot;'pt'|'en'&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;orbi&quot;,&quot;escolinhas&quot;,&quot;camera&quot;,&quot;sobre&quot;,&quot;contato&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { mobile: false, open: false };
+  componentDidMount() {
+    this._mq = window.matchMedia('(max-width: 900px)');
+    this._onmq = () => this.setState({ mobile: this._mq.matches, open: this._mq.matches ? this.state.open : false });
+    this._onmq();
+    this._mq.addEventListener('change', this._onmq);
+  }
+  componentWillUnmount() { if (this._mq) this._mq.removeEventListener('change', this._onmq); }
+  setLang(l) {
+    try { localStorage.setItem('erlang', l); } catch (e) {}
+    window.dispatchEvent(new CustomEvent('erlang', { detail: l }));
+  }
+  renderVals() {
+    const lang = this.props.lang === 'en' ? 'en' : 'pt';
+    const active = this.props.active || 'home';
+    const L = {
+      pt: { orbi: 'ORBI Analysis', esc: 'ORBI Academy', cam: 'ORBI Go', sobre: 'Sobre', contato: 'Contato', cta: 'Ative sua análise' },
+      en: { orbi: 'ORBI Analysis', esc: 'ORBI Academy', cam: 'ORBI Go', sobre: 'About', contato: 'Contact', cta: 'Activate your analysis' },
+    }[lang];
+    const nav = [
+      { id: 'orbi', label: L.orbi, href: 'ORBI-Analysis.dc.html' },
+      { id: 'escolinhas', label: L.esc, href: 'ORBI-Academy.dc.html' },
+      { id: 'camera', label: L.cam, href: 'Camera.dc.html' },
+      { id: 'sobre', label: L.sobre, href: 'Sobre.dc.html' },
+      { id: 'contato', label: L.contato, href: 'Contato.dc.html' },
+    ];
+    const base = 'display:inline-flex;align-items:center;height:38px;padding:0 14px;border-radius:9px;font-family:var(--font-sans);font-weight:500;font-size:14.5px;text-decoration:none;transition:color var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out);';
+    const mbase = 'display:flex;align-items:center;height:48px;padding:0 14px;border-radius:10px;font-family:var(--font-display);font-weight:500;font-size:17px;text-decoration:none;';
+    const navItems = nav.map(n => ({
+      ...n,
+      style: base + (n.id === active ? 'color:var(--cyan-400);background:var(--cyan-tint);' : 'color:var(--text-muted);'),
+      mstyle: mbase + (n.id === active ? 'color:var(--cyan-400);background:var(--cyan-tint);' : 'color:var(--text);'),
+    }));
+    const seg = 'height:28px;min-width:34px;padding:0 9px;border:none;font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.06em;border-radius:6px;cursor:pointer;transition:var(--transition-base);';
+    const on = 'background:var(--grad-holo);color:var(--on-accent);';
+    const off = 'background:transparent;color:var(--text-muted);';
+    return {
+      navItems, cta: L.cta,
+      mobile: this.state.mobile, showDesktop: !this.state.mobile,
+      open: this.state.open, closed: !this.state.open,
+      ptStyle: seg + (lang === 'pt' ? on : off),
+      enStyle: seg + (lang === 'en' ? on : off),
+      setPt: () => this.setLang('pt'),
+      setEn: () => this.setLang('en'),
+      toggleMenu: () => this.setState(s => ({ open: !s.open })),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ative sua análise ORBI Analysis | Esporte em Rota</title>
+<meta name="description" content="Veja o ORBI Analysis com o seu próprio jogo. Agende uma demonstração rápida e sem compromisso. Vagas de instalação limitadas por região." />
+<link rel="icon" href="assets/er-logo.png" />
+<link rel="stylesheet" href="styles.css" />
+<script src="er.js"></script>
+<style>
+  [data-reveal]{opacity:0;}
+  @keyframes erReveal{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
+  @keyframes erPulse{0%,100%{opacity:.9;transform:scale(1);}50%{opacity:.25;transform:scale(1.5);}}
+  @keyframes erScan{0%{transform:translateY(-30%);opacity:0;}12%{opacity:1;}100%{transform:translateY(560%);opacity:0;}}
+  @keyframes erPop{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion: reduce){[data-reveal]{opacity:1 !important;transform:none !important;animation:none !important;}*{animation-duration:.001ms !important;animation-iteration-count:1 !important;}}
+</style>
+</helmet>
+
+<div style="background:var(--bg);color:var(--text);overflow-x:hidden;min-height:100vh;">
+<dc-import name="SiteHeader" lang="{{ lang }}" active="orbi" hint-size="100%,68px"></dc-import>
+
+<section style="position:relative;padding:clamp(40px,6vw,80px) 24px clamp(56px,8vw,112px);overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:var(--bg-grid);background-size:var(--bg-grid-size);opacity:.5;pointer-events:none;-webkit-mask-image:radial-gradient(120% 80% at 50% 0,#000 30%,transparent 78%);mask-image:radial-gradient(120% 80% at 50% 0,#000 30%,transparent 78%);"></div>
+  <div style="position:absolute;top:-140px;left:50%;transform:translateX(-50%);width:820px;height:520px;background:var(--glow-radial-cyan);pointer-events:none;"></div>
+  <div style="position:absolute;top:120px;right:-120px;width:520px;height:520px;background:var(--glow-radial-violet);pointer-events:none;"></div>
+
+  <div style="position:relative;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(28px,4vw,56px);align-items:start;">
+
+    <div style="padding-top:clamp(8px,2vw,28px);">
+      <div data-reveal style="display:inline-flex;align-items:center;gap:10px;padding:7px 15px;border-radius:var(--radius-pill);border:1px solid var(--border-strong);background:var(--surface-inset);margin-bottom:22px;">
+        <img src="assets/orbi-icon.png" alt="ORBI" style="width:20px;height:20px;display:block;" />
+        <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-400);">{{ eyebrow }}</span>
+      </div>
+      <h1 data-reveal data-delay="60" style="font-family:var(--font-display);font-weight:700;font-size:clamp(32px,4.6vw,54px);line-height:1.04;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0 0 20px;max-width:16ch;">{{ titleA }}<span style="background:var(--grad-holo);-webkit-background-clip:text;background-clip:text;color:transparent;">{{ titleKey }}</span>{{ titleB }}</h1>
+      <p data-reveal data-delay="120" style="font-size:clamp(16px,1.8vw,19px);line-height:1.66;color:var(--text-muted);max-width:46ch;margin:0 0 28px;">{{ subtitle }}</p>
+
+      <ul data-reveal data-delay="180" style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:13px;">
+        <sc-for list="{{ perks }}" as="p" hint-placeholder-count="3">
+          <li style="display:flex;align-items:flex-start;gap:12px;font-size:15.5px;line-height:1.5;color:var(--text);">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--cyan-tint);border:1px solid rgba(0,166,166,.3);flex:none;margin-top:1px;"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="var(--cyan-400)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>{{ p }}</span>
+          </li>
+        </sc-for>
+      </ul>
+
+      <a href="{{ waHref }}" target="_blank" rel="noopener" data-reveal data-delay="220" style="display:inline-flex;align-items:center;gap:11px;padding:13px 20px;border-radius:var(--radius-button);background:var(--surface-2);border:1px solid var(--border-strong);text-decoration:none;transition:var(--transition-base);" style-hover="border-color:var(--border-glow);background:var(--surface-hover);">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#25D366;flex:none;"><svg viewBox="0 0 24 24" width="21" height="21" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg></span>
+        <span>
+          <span style="display:block;font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--text-strong);">{{ waTitle }}</span>
+          <span style="display:block;font-size:12.5px;color:var(--text-muted);">{{ waSub }}</span>
+        </span>
+      </a>
+    </div>
+
+    <div data-reveal data-delay="120" style="position:relative;">
+      <div style="position:relative;border-radius:var(--radius-panel);overflow:hidden;border:1px solid var(--border-strong);background:var(--surface-2);box-shadow:var(--glow-cyan-sm),var(--shadow-xl);">
+
+        <div style="position:relative;padding:16px 22px;background:#0c2129;border-bottom:1px solid rgba(255,255,255,.1);overflow:hidden;">
+          <div style="position:absolute;left:0;right:0;top:0;height:80px;background:linear-gradient(180deg,transparent,rgba(0,166,166,.14),transparent);animation:erScan 5.5s var(--ease-in-out) infinite;pointer-events:none;"></div>
+          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+            <div style="display:flex;align-items:center;gap:10px;min-width:0;">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--coral-500);box-shadow:0 0 10px var(--coral-500);flex:none;animation:erPulse 1.6s ease-in-out infinite;"></span>
+              <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.82);line-height:1.3;">{{ promoLabel }}</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:3px;font-family:var(--font-mono);font-variant-numeric:tabular-nums;flex:none;">
+              <span style="min-width:38px;text-align:center;padding:6px 8px;border-radius:8px;background:rgba(6,20,26,.7);border:1px solid rgba(255,255,255,.16);font-size:20px;font-weight:600;color:{{ clockColor }};">{{ mm }}</span>
+              <span style="font-size:20px;font-weight:600;color:rgba(255,255,255,.5);">:</span>
+              <span style="min-width:38px;text-align:center;padding:6px 8px;border-radius:8px;background:rgba(6,20,26,.7);border:1px solid rgba(255,255,255,.16);font-size:20px;font-weight:600;color:{{ clockColor }};">{{ ss }}</span>
+            </div>
+          </div>
+          <div style="position:relative;margin-top:12px;height:4px;border-radius:2px;background:rgba(255,255,255,.12);overflow:hidden;">
+            <div style="height:100%;width:{{ progressPct }};background:var(--grad-holo);border-radius:2px;transition:width 1s linear;"></div>
+          </div>
+        </div>
+
+        <div style="padding:clamp(22px,3vw,32px);">
+          <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+            <div>
+              <div style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-400);margin-bottom:8px;">{{ formEyebrow }}</div>
+              <h2 style="font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2.4vw,25px);line-height:1.15;color:var(--text-strong);margin:0 0 22px;">{{ formTitle }}</h2>
+
+              <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px;">
+                <label style="display:block;">
+                  <span style="display:block;font-size:13px;font-weight:500;color:var(--text-muted);margin-bottom:7px;">{{ lNome }}</span>
+                  <input type="text" value="{{ fNome }}" onInput="{{ setNome }}" placeholder="{{ phNome }}" autoComplete="name" style="{{ inNome }}" style-focus="border-color:var(--cyan-500);box-shadow:var(--focus-ring);" />
+                </label>
+                <label style="display:block;">
+                  <span style="display:block;font-size:13px;font-weight:500;color:var(--text-muted);margin-bottom:7px;">{{ lTel }}</span>
+                  <input type="tel" value="{{ fTel }}" onInput="{{ setTel }}" placeholder="{{ phTel }}" autoComplete="tel" style="{{ inTel }}" style-focus="border-color:var(--cyan-500);box-shadow:var(--focus-ring);" />
+                </label>
+                <label style="display:block;">
+                  <span style="display:block;font-size:13px;font-weight:500;color:var(--text-muted);margin-bottom:7px;">{{ lEmpresa }}</span>
+                  <input type="text" value="{{ fEmpresa }}" onInput="{{ setEmpresa }}" placeholder="{{ phEmpresa }}" autoComplete="organization" style="{{ inEmpresa }}" style-focus="border-color:var(--cyan-500);box-shadow:var(--focus-ring);" />
+                </label>
+                <label style="display:block;">
+                  <span style="display:block;font-size:13px;font-weight:500;color:var(--text-muted);margin-bottom:7px;">{{ lEmail }}</span>
+                  <input type="email" value="{{ fEmail }}" onInput="{{ setEmail }}" placeholder="{{ phEmail }}" autoComplete="email" style="{{ inEmail }}" style-focus="border-color:var(--cyan-500);box-shadow:var(--focus-ring);" />
+                </label>
+
+                <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;align-items:center;gap:9px;padding:11px 14px;border-radius:var(--radius-md);background:rgba(230,78,78,.1);border:1px solid rgba(230,78,78,.34);font-size:13.5px;color:var(--negative);">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                    <span>{{ errorMsg }}</span>
+                  </div>
+                </sc-if>
+
+                <button type="submit" style="margin-top:4px;display:inline-flex;align-items:center;justify-content:center;gap:9px;height:54px;padding:0 26px;font-family:var(--font-display);font-weight:700;font-size:16px;border:none;border-radius:var(--radius-button);background:var(--grad-holo);color:var(--on-accent);box-shadow:var(--shadow-md);cursor:pointer;transition:var(--transition-base);" style-hover="box-shadow:var(--glow-cyan),var(--shadow-md);filter:brightness(1.06);" style-active="transform:translateY(1px) scale(.99);">
+                  {{ submitBtn }}
+                  <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+
+                <p style="display:flex;align-items:center;gap:8px;justify-content:center;font-family:var(--font-mono);font-size:12px;letter-spacing:.02em;color:var(--text-faint);margin:2px 0 0;text-align:center;">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                  {{ formNote }}
+                </p>
+              </form>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+            <div style="text-align:center;padding:14px 6px 8px;animation:erPop .5s var(--ease-out) both;">
+              <div style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:78px;height:78px;border-radius:50%;background:var(--grad-holo);box-shadow:var(--glow-cyan-sm);margin-bottom:22px;">
+                <span style="position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--border-glow);animation:erPulse 2s ease-in-out infinite;"></span>
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="var(--on-accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </div>
+              <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(22px,2.6vw,28px);line-height:1.12;color:var(--text-strong);margin:0 0 14px;">{{ okTitle }}</h2>
+              <p style="font-size:15.5px;line-height:1.62;color:var(--text-muted);max-width:40ch;margin:0 auto 26px;">{{ okBody }}</p>
+              <div style="display:flex;flex-wrap:wrap;gap:11px;justify-content:center;">
+                <a href="{{ waHref }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 22px;font-family:var(--font-display);font-weight:600;font-size:15px;border-radius:var(--radius-button);background:#25D366;color:#fff;text-decoration:none;box-shadow:var(--shadow-sm);transition:var(--transition-base);" style-hover="filter:brightness(1.05);">
+                  <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                  {{ okWa }}
+                </a>
+                <a href="ORBI-Analysis.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 20px;font-family:var(--font-display);font-weight:600;font-size:15px;border-radius:var(--radius-button);background:var(--surface-2);color:var(--text-strong);border:1px solid var(--border-strong);text-decoration:none;transition:var(--transition-base);" style-hover="border-color:var(--border-glow);">{{ okBack }}</a>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+
+      <p style="text-align:center;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--text-faint);margin:16px 0 0;">{{ trustLine }}</p>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:860}}">
+class Component extends DCLogic {
+  state = {
+    lang: (typeof localStorage !== 'undefined' && localStorage.getItem('erlang') === 'en') ? 'en' : 'pt',
+    remaining: 180,
+    form: { nome: '', tel: '', empresa: '', email: '' },
+    error: '',
+    submitted: false,
+  };
+  DURATION = 180;
+  componentDidMount() {
+    this._lh = () => this.setState({ lang: (localStorage.getItem('erlang') === 'en') ? 'en' : 'pt' });
+    window.addEventListener('erlang', this._lh);
+    this._initClock();
+    this._tick = setInterval(() => this.setState({ remaining: this._computeLeft() }), 1000);
+    this._runFx();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('erlang', this._lh);
+    if (this._tick) clearInterval(this._tick);
+  }
+  _initClock() {
+    let dl = 0;
+    try { dl = parseInt(localStorage.getItem('er-promo-analise') || '0', 10); } catch (e) {}
+    const now = Date.now();
+    if (!dl || dl <= now) {
+      dl = now + this.DURATION * 1000;
+      try { localStorage.setItem('er-promo-analise', String(dl)); } catch (e) {}
+    }
+    this._deadline = dl;
+    this.setState({ remaining: this._computeLeft() });
+  }
+  _computeLeft() { return Math.max(0, Math.round((this._deadline - Date.now()) / 1000)); }
+  _runFx() {
+    let tries = 0;
+    const go = () => { if (window.ER && window.ER.fx) window.ER.fx(); else if (tries++ < 40) setTimeout(go, 60); };
+    go();
+  }
+  _set(k) { return (e) => { const v = e.target.value; this.setState(s => ({ form: { ...s.form, [k]: v }, error: '' })); }; }
+  _submit(e) {
+    e.preventDefault();
+    const f = this.state.form;
+    const en = this.state.lang === 'en';
+    if (!f.nome.trim() || !f.tel.trim() || !f.empresa.trim() || !f.email.trim()) {
+      this.setState({ error: en ? 'Please fill in all fields.' : 'Preencha todos os campos.' });
+      return;
+    }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.trim())) {
+      this.setState({ error: en ? 'Please enter a valid e-mail.' : 'Informe um e-mail válido.' });
+      return;
+    }
+    this.setState({ submitted: true, error: '' });
+  }
+  renderVals() {
+    const lang = this.state.lang === 'en' ? 'en' : 'pt';
+    const left = this.state.remaining;
+    const mm = String(Math.floor(left / 60)).padStart(2, '0');
+    const ss = String(left % 60).padStart(2, '0');
+    const expired = left <= 0;
+    const progressPct = Math.max(0, Math.min(100, (left / this.DURATION) * 100)) + '%';
+    const f = this.state.form;
+    const waDigits = '5511944911475';
+    const waText = encodeURIComponent(lang === 'en'
+      ? 'Hi! I\u2019d like to schedule an ORBI Analysis demo with my club\u2019s own game.'
+      : 'Olá! Quero agendar uma demonstração do ORBI Analysis com o jogo do meu clube.');
+    const waHref = 'https://wa.me/' + waDigits + '?text=' + waText;
+    const inBase = 'width:100%;height:48px;padding:0 15px;font-family:var(--font-sans);font-size:15px;color:var(--text-strong);background:var(--surface-inset);border:1px solid var(--border);border-radius:var(--radius-input);outline:none;transition:var(--transition-base);box-sizing:border-box;';
+    const errBorder = this.state.error ? 'border-color:rgba(230,78,78,.5);' : '';
+    const inFor = (val) => inBase + (this.state.error && !String(val).trim() ? errBorder : '');
+    const clockColor = expired ? 'var(--coral-400)' : '#fff';
+
+    const T = {
+      pt: {
+        eyebrow: 'ORBI Analysis',
+        titleA: 'Veja o ORBI Analysis com o seu ', titleKey: 'próprio jogo', titleB: '.',
+        subtitle: 'Agende uma reunião rápida e descubra, na prática, como transformar cada partida da sua base em vídeo, análise e histórico. Sem compromisso.',
+        perks: ['Demonstração com o próprio jogo do seu clube', 'Reunião rápida, online, no seu horário', 'Retorno em até 24 horas'],
+        waTitle: 'Prefere não preencher?', waSub: 'Fale agora no WhatsApp',
+        promoLabel: expired ? '// Vaga liberada agende agora' : '// Sua vaga está reservada por',
+        formEyebrow: '// Agende sua demonstração',
+        formTitle: 'Garanta sua vaga de agendamento.',
+        lNome: 'Nome', phNome: 'Seu nome completo',
+        lTel: 'Telefone / WhatsApp', phTel: '(11) 90000-0000',
+        lEmpresa: 'Empresa ou clube', phEmpresa: 'Nome da empresa ou clube',
+        lEmail: 'E-mail', phEmail: 'voce@clube.com.br',
+        submitBtn: 'Agendar demonstração',
+        formNote: 'Retorno em até 24 h · vagas de instalação limitadas por região',
+        okTitle: 'Vaga garantida!',
+        okBody: 'Recebemos seus dados. Nossa equipe entra em contato em breve para agendar a sua demonstração do ORBI Analysis.',
+        okWa: 'Adiantar pelo WhatsApp', okBack: 'Voltar ao ORBI Analysis',
+        trustLine: 'Seus dados são usados apenas para o contato do agendamento.',
+      },
+      en: {
+        eyebrow: 'ORBI Analysis',
+        titleA: 'See ORBI Analysis with your ', titleKey: 'own game', titleB: '.',
+        subtitle: 'Book a quick meeting and discover, in practice, how to turn every match your base plays into video, analysis and history. No commitment.',
+        perks: ['A demo with your club\u2019s own game', 'Quick online meeting, on your schedule', 'We get back to you within 24 hours'],
+        waTitle: 'Rather not fill it in?', waSub: 'Talk now on WhatsApp',
+        promoLabel: expired ? '// Slot released book now' : '// Your slot is held for',
+        formEyebrow: '// Book your demo',
+        formTitle: 'Lock in your booking slot.',
+        lNome: 'Name', phNome: 'Your full name',
+        lTel: 'Phone / WhatsApp', phTel: '+55 11 90000-0000',
+        lEmpresa: 'Company or club', phEmpresa: 'Company or club name',
+        lEmail: 'E-mail', phEmail: 'you@club.com',
+        submitBtn: 'Book demo',
+        formNote: 'Reply within 24 h · installation slots limited by region',
+        okTitle: 'Slot secured!',
+        okBody: 'We\u2019ve received your details. Our team will contact you shortly to schedule your ORBI Analysis demo.',
+        okWa: 'Speed things up on WhatsApp', okBack: 'Back to ORBI Analysis',
+        trustLine: 'Your details are used only to arrange the demo.',
+      },
+    }[lang];
+
+    return {
+      lang, mm, ss, clockColor, progressPct, waHref,
+      notSubmitted: !this.state.submitted, submitted: this.state.submitted,
+      hasError: !!this.state.error, errorMsg: this.state.error,
+      fNome: f.nome, fTel: f.tel, fEmpresa: f.empresa, fEmail: f.email,
+      setNome: this._set('nome'), setTel: this._set('tel'), setEmpresa: this._set('empresa'), setEmail: this._set('email'),
+      inNome: inFor(f.nome), inTel: inFor(f.tel), inEmpresa: inFor(f.empresa), inEmail: inFor(f.email),
+      onSubmit: (e) => this._submit(e),
+      ...T,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+/* ORBI Analysis — Webfonts
+   No brand font files were provided (the brandbook only asked for an "impactful" display face).
+   Chosen on Google Fonts to match the ORBI wordmark's wide, squared HUD geometry and the
+   brand's technical/precise tone. Swap here if real brand fonts arrive.
+   - Chakra Petch  -> display / headlines / HUD labels (squared, technical)
+   - IBM Plex Sans -> body / UI (engineered, neutral, professional)
+   - IBM Plex Mono -> data / stats / eyebrow labels (telemetry readouts) */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
