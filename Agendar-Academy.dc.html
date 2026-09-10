@@ -9,8 +9,8 @@
 <x-dc>
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Agende sua demonstração do ORBI Academy | Esporte em Rota</title>
-<meta name="description" content="Veja o ORBI Academy com a sua própria escolinha. Agende uma demonstração rápida e sem compromisso. Vagas limitadas por região." />
+<title>Agende sua demonstração do ORION Academy | Esporte em Rota</title>
+<meta name="description" content="Veja o ORION Academy com a sua própria escolinha. Agende uma demonstração rápida e sem compromisso. Vagas limitadas por região." />
 <link rel="icon" href="assets/er-logo.png" />
 <link rel="stylesheet" href="styles.css" />
 <script src="er.js"></script>
@@ -36,7 +36,7 @@
 
     <div style="padding-top:clamp(8px,2vw,28px);">
       <div data-reveal style="display:inline-flex;align-items:center;gap:10px;padding:7px 15px;border-radius:var(--radius-pill);border:1px solid var(--border-strong);background:var(--surface-inset);margin-bottom:22px;">
-        <img src="assets/orbi-icon.png" alt="ORBI" style="width:20px;height:20px;display:block;" />
+        <img src="assets/orbi-icon.png" alt="ORION" style="width:20px;height:20px;display:block;" />
         <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-400);">{{ eyebrow }}</span>
       </div>
       <h1 data-reveal data-delay="60" style="font-family:var(--font-display);font-weight:700;font-size:clamp(32px,4.6vw,54px);line-height:1.04;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0 0 20px;max-width:16ch;">{{ titleA }}<span style="background:var(--grad-holo);-webkit-background-clip:text;background-clip:text;color:transparent;">{{ titleKey }}</span>{{ titleB }}</h1>
@@ -138,7 +138,7 @@
                   <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
                   {{ okWa }}
                 </a>
-                <a href="ORBI-Academy.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 20px;font-family:var(--font-display);font-weight:600;font-size:15px;border-radius:var(--radius-button);background:var(--surface-2);color:var(--text-strong);border:1px solid var(--border-strong);text-decoration:none;transition:var(--transition-base);" style-hover="border-color:var(--border-glow);">{{ okBack }}</a>
+                <a href="ORION-Academy.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 20px;font-family:var(--font-display);font-weight:600;font-size:15px;border-radius:var(--radius-button);background:var(--surface-2);color:var(--text-strong);border:1px solid var(--border-strong);text-decoration:none;transition:var(--transition-base);" style-hover="border-color:var(--border-glow);">{{ okBack }}</a>
               </div>
             </div>
           </sc-if>
@@ -216,8 +216,8 @@ class Component extends DCLogic {
     const f = this.state.form;
     const waDigits = '5511944911475';
     const waText = encodeURIComponent(lang === 'en'
-      ? 'Hi! I\u2019d like to schedule an ORBI Academy demo for my football academy.'
-      : 'Olá! Quero agendar uma demonstração do ORBI Academy para a minha escolinha.');
+      ? 'Hi! I\u2019d like to schedule an ORION Academy demo for my football academy.'
+      : 'Olá! Quero agendar uma demonstração do ORION Academy para a minha escolinha.');
     const waHref = 'https://wa.me/' + waDigits + '?text=' + waText;
     const inBase = 'width:100%;height:48px;padding:0 15px;font-family:var(--font-sans);font-size:15px;color:var(--text-strong);background:var(--surface-inset);border:1px solid var(--border);border-radius:var(--radius-input);outline:none;transition:var(--transition-base);box-sizing:border-box;';
     const errBorder = this.state.error ? 'border-color:rgba(230,78,78,.5);' : '';
@@ -226,8 +226,8 @@ class Component extends DCLogic {
 
     const T = {
       pt: {
-        eyebrow: 'ORBI Academy',
-        titleA: 'Veja o ORBI Academy com a sua ', titleKey: 'própria escolinha', titleB: '.',
+        eyebrow: 'ORION Academy',
+        titleA: 'Veja o ORION Academy com a sua ', titleKey: 'própria escolinha', titleB: '.',
         subtitle: 'Agende uma reunião rápida e conheça, na prática, o app que organiza a sua escolinha e os cursos que ensinam você a fazê-la crescer. Sem compromisso.',
         perks: ['Demonstração do app com a rotina da sua escolinha', 'Reunião rápida, online, no seu horário', 'Retorno em até 24 horas'],
         waTitle: 'Prefere não preencher?', waSub: 'Fale agora no WhatsApp',
@@ -241,13 +241,13 @@ class Component extends DCLogic {
         submitBtn: 'Agendar demonstração',
         formNote: 'Retorno em até 24 h · vagas limitadas por região',
         okTitle: 'Vaga garantida!',
-        okBody: 'Recebemos seus dados. Nossa equipe entra em contato em breve para agendar a sua demonstração do ORBI Academy.',
-        okWa: 'Adiantar pelo WhatsApp', okBack: 'Voltar ao ORBI Academy',
+        okBody: 'Recebemos seus dados. Nossa equipe entra em contato em breve para agendar a sua demonstração do ORION Academy.',
+        okWa: 'Adiantar pelo WhatsApp', okBack: 'Voltar ao ORION Academy',
         trustLine: 'Seus dados são usados apenas para o contato do agendamento.',
       },
       en: {
-        eyebrow: 'ORBI Academy',
-        titleA: 'See ORBI Academy with your ', titleKey: 'own academy', titleB: '.',
+        eyebrow: 'ORION Academy',
+        titleA: 'See ORION Academy with your ', titleKey: 'own academy', titleB: '.',
         subtitle: 'Book a quick meeting and see, in practice, the app that organizes your academy and the courses that teach you how to grow it. No commitment.',
         perks: ['A demo of the app with your academy\u2019s routine', 'Quick online meeting, on your schedule', 'We get back to you within 24 hours'],
         waTitle: 'Rather not fill it in?', waSub: 'Talk now on WhatsApp',
@@ -261,8 +261,8 @@ class Component extends DCLogic {
         submitBtn: 'Book demo',
         formNote: 'Reply within 24 h · slots limited by region',
         okTitle: 'Slot secured!',
-        okBody: 'We\u2019ve received your details. Our team will contact you shortly to schedule your ORBI Academy demo.',
-        okWa: 'Speed things up on WhatsApp', okBack: 'Back to ORBI Academy',
+        okBody: 'We\u2019ve received your details. Our team will contact you shortly to schedule your ORION Academy demo.',
+        okWa: 'Speed things up on WhatsApp', okBack: 'Back to ORION Academy',
         trustLine: 'Your details are used only to arrange the demo.',
       },
     }[lang];
