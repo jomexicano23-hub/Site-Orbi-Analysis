@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ORBI Analysis o jogo inteiro em dados | Esporte em Rota</title>
+<title>ORION Analysis o jogo inteiro em dados | Esporte em Rota</title>
 <meta name="description" content="Análise de jogo com inteligência artificial: vídeo panorâmico, melhores momentos automáticos, rede de passes, mapa de calor e histórico de cada atleta. Para escolinhas, clubes de base e equipes profissionais." />
 <link rel="icon" href="assets/er-logo.png" />
 <link rel="stylesheet" href="styles.css" />
@@ -113,7 +113,7 @@
     <video src="{{ localSrc }}" autoplay muted loop playsinline onEnded="{{ loopBg }}" style="position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;"></video>
   </sc-if>
   <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
-    <div style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;"><iframe src="{{ ytBgUrl }}" title="ORBI" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;min-width:177.77vh;min-height:56.25vw;border:0;"></iframe></div>
+    <div style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;"><iframe src="{{ ytBgUrl }}" title="ORION" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;height:100%;min-width:177.77vh;min-height:56.25vw;border:0;"></iframe></div>
   </sc-if>
   <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(110deg,rgba(4,10,16,.94) 0%,rgba(4,10,16,.82) 40%,rgba(4,10,16,.5) 78%,rgba(4,10,16,.32) 100%);"></div>
   <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(4,10,16,.75) 0%,rgba(4,10,16,0) 22%,rgba(4,10,16,0) 72%,rgba(4,10,16,.85) 100%);"></div>
@@ -153,7 +153,7 @@
   </div>
 </section>
 
-<!-- ================= POR QUE O ORBI EXISTE + COMO FUNCIONA ================= -->
+<!-- ================= POR QUE O ORION EXISTE + COMO FUNCIONA ================= -->
 <section id="orbi-demo" style="position:relative;padding:clamp(56px,8vw,116px) 24px;background:#0c2129;overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);scroll-margin-top:80px;">
   <div style="position:absolute;inset:0;background-image:var(--bg-dots);background-size:var(--bg-dots-size);opacity:.4;pointer-events:none;"></div>
   <div style="position:absolute;top:-40px;left:-80px;width:520px;height:520px;background:radial-gradient(circle,rgba(244,162,97,.14),transparent 62%);pointer-events:none;"></div>
@@ -218,7 +218,7 @@
         </div>
       </div>
       <div style="position:relative;aspect-ratio:16/9;background:#05070d;">
-        <image-slot id="orbi-platform" shape="rect" fit="cover" placeholder="Solte uma tela real da plataforma ORBI (vídeo panorâmico, rede de passes ou mapa de calor)"></image-slot>
+        <image-slot id="orbi-platform" shape="rect" fit="cover" placeholder="Solte uma tela real da plataforma ORION (vídeo panorâmico, rede de passes ou mapa de calor)"></image-slot>
         <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,10,16,.28),rgba(4,10,16,0) 30%,rgba(4,10,16,.4) 100%);"></div>
         <div style="position:absolute;top:16px;left:18px;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:var(--radius-pill);background:rgba(6,20,26,.6);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.16);pointer-events:none;">
           <span style="width:6px;height:6px;border-radius:50%;background:var(--cyan-400);box-shadow:0 0 8px var(--cyan-400);"></span>
@@ -375,7 +375,7 @@
 
       <div style="position:relative;">
         <span data-reveal style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:96px;height:96px;border-radius:var(--radius-panel);background:rgba(6,20,26,.55);border:1px solid var(--border-glow);box-shadow:var(--glow-cyan-sm);margin:0 auto 28px;">
-          <img src="assets/orbi-icon.png" alt="ORBI" style="width:78px;height:78px;display:block;" />
+          <img src="assets/orbi-icon.png" alt="ORION" style="width:78px;height:78px;display:block;" />
         </span>
         <h2 data-reveal data-delay="60" style="font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4.6vw,52px);line-height:1.05;letter-spacing:var(--tracking-tight);color:#fff;margin:0 auto 18px;max-width:18ch;">{{ ctaTitle }}</h2>
         <p data-reveal data-delay="120" style="font-size:clamp(16px,1.9vw,20px);line-height:1.62;color:rgba(255,255,255,.82);max-width:600px;margin:0 auto 36px;">{{ ctaText }}</p>
@@ -406,7 +406,7 @@
     <div onClick="{{ stopProp }}" style="position:relative;width:min(1120px,94vw);aspect-ratio:16/9;max-height:86vh;border-radius:var(--radius-panel);overflow:hidden;border:1px solid var(--border-glow);box-shadow:var(--glow-cyan),var(--shadow-xl);background:#000;">
       <button type="button" onClick="{{ closeVideo }}" aria-label="Fechar" style="position:absolute;top:12px;right:12px;z-index:6;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(6,20,26,.72);backdrop-filter:blur(6px);color:#fff;cursor:pointer;transition:var(--transition-base);" style-hover="background:rgba(6,20,26,.94);border-color:var(--border-glow);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
       <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
-        <iframe src="{{ ytModalUrl }}" title="Vídeo demonstrativo ORBI" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+        <iframe src="{{ ytModalUrl }}" title="Vídeo demonstrativo ORION" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
       </sc-if>
       <sc-if value="{{ videoReady }}" hint-placeholder-val="{{ true }}">
         <video src="{{ localSrc }}" controls autoplay playsinline style="position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;"></video>
@@ -498,7 +498,7 @@ class Component extends DCLogic {
         heroEyebrow: 'Análise de jogo com IA',
         heroA: 'Talento não se perde. ', heroKey: 'Se registra', heroB: '',
         heroSub: 'Análise de jogo e desenvolvimento de atletas com inteligência artificial. Vídeo, dados e histórico de evolução para escolinhas e clubes que tratam a base como profissão.',
-        heroCta1: 'Ative sua análise', heroCta2: 'Ver o ORBI por dentro',
+        heroCta1: 'Ative sua análise', heroCta2: 'Ver o ORION por dentro',
         heroTrust: 'Feito no Brasil · Suporte em português',
         mockLive: 'Telemetria ao vivo', mockTrend: '+16%', mockTrendLabel: 'na temporada',
         mockPlayer: '#10', mockSpeed: '11.4 km/h',
@@ -507,25 +507,25 @@ class Component extends DCLogic {
         probEyebrow: '// O problema',
         probTitle: 'O futebol de base joga no escuro.',
         probLead: 'Escolinhas e clubes pequenos não são televisionados. Sem imagem e sem histórico, sobra só a memória de quem estava lá, e a memória falha. Quantos bons jogadores já se perderam simplesmente porque ninguém guardou a sua trajetória?',
-        probWatch: 'Assistir ao vídeo', probWatchSub: 'Vídeo comercial · ORBI',
+        probWatch: 'Assistir ao vídeo', probWatchSub: 'Vídeo comercial · ORION',
         problems: [
           { icon: 'videooff', title: 'Sem transmissão', desc: 'Nenhuma câmera profissional cobre os jogos da base. O que não foi gravado, ninguém revê.' },
           { icon: 'database', title: 'Sem banco de dados', desc: 'Não há registro da evolução do atleta. Cada temporada começa do zero.' },
           { icon: 'imageoff', title: 'Sem vídeo para análise', desc: 'Sem imagens, treinador e dirigente não têm como analisar o desempenho.' },
         ],
-        pEyebrow: 'ORBI Analysis',
+        pEyebrow: 'ORION Analysis',
         hTitleA: 'O jogo inteiro em ', hKey: 'dados', hTitleB: '.',
         hSub: 'Análise de jogo com inteligência artificial para revelar, acompanhar e valorizar cada atleta do sub-11 ao profissional.',
         pLiveTag: '// Vídeo demonstrativo',
-        vWatch: 'Assistir com som', vTag: 'ORBI em campo',
-        introLeadA: 'O ORBI Analysis transforma cada partida do seu clube em ',
+        vWatch: 'Assistir com som', vTag: 'ORION em campo',
+        introLeadA: 'O ORION Analysis transforma cada partida do seu clube em ',
         introBold: 'vídeo, análise e histórico',
         introLeadB: ' na conta do seu clube, sem cinegrafista e sem complicação. Abaixo, entenda como ele funciona e o que entrega para cada tipo de clube.',
         whyEyebrow: '// O contexto',
-        whyTitle: 'Por que o ORBI existe.',
+        whyTitle: 'Por que o ORION existe.',
         whyP1: 'A base tratada com o rigor do profissional.',
         whyP2: 'Uma câmera capta o jogo inteiro. A inteligência artificial rastreia cada jogador e transforma a partida em vídeo e dados que orientam o desenvolvimento.',
-        whyPunchA: 'O ORBI transforma intuição em evidência: dados reais direcionam ', whyPunchB: 'a evolução constante da base.',
+        whyPunchA: 'O ORION transforma intuição em evidência: dados reais direcionam ', whyPunchB: 'a evolução constante da base.',
         howEyebrow: '// Como funciona',
         howTitle: 'Duas câmeras. O jogo inteiro, sem cinegrafista.',
         howLead: 'Duas câmeras se costuram e geram o vídeo panorâmico do campo inteiro, enquanto a câmera com IA acompanha a ação sozinha. Cada lance relevante é marcado automaticamente você clica no marcador e vê dez segundos antes e depois. Tudo fica guardado na plataforma web, na conta do seu clube.',
@@ -546,37 +546,37 @@ class Component extends DCLogic {
         f8t: 'Plataforma web', f8d: 'Conta do clube: upload, assistir, baixar e histórico de todos os jogos.',
         soonBadge: 'Em breve · câmera fixa',
         soonTitle: 'A próxima fase acrescenta o físico e o tático.',
-        soonLead: 'Com a câmera fixa, o ORBI passa a ler o jogo também em nível físico e tático.',
+        soonLead: 'Com a câmera fixa, o ORION passa a ler o jogo também em nível físico e tático.',
         s1t: 'Chute a gol', s1d: 'Detectado automaticamente.',
         s2t: 'Distância e velocidade', s2d: 'Por jogador, ao longo da partida.',
         s3t: 'Mapa tático em metros', s3d: 'Visão de cima (top-down), em escala real.',
         s4t: 'Transmissão ao vivo', s4d: 'O jogo em tempo real.',
         whoEyebrow: '// Para o seu clube',
-        whoTitle: 'Um ORBI para cada tipo de clube.',
+        whoTitle: 'Um ORION para cada tipo de clube.',
         seg1kicker: 'Para escolinhas', seg1title: 'Talento sem registro não abre portas.',
-        seg1body: 'Com o ORBI, cada partida vira acervo: os melhores momentos de cada aluno, prontos para apresentar a clubes. É o material que coloca o seu garoto à frente na disputa por uma vaga na base e que diferencia a sua escolinha de todas as outras da região.',
+        seg1body: 'Com o ORION, cada partida vira acervo: os melhores momentos de cada aluno, prontos para apresentar a clubes. É o material que coloca o seu garoto à frente na disputa por uma vaga na base e que diferencia a sua escolinha de todas as outras da região.',
         seg1punch: 'Prova na mão, não promessa.',
         seg2kicker: 'Para clubes e categorias de base', seg2title: 'O histórico que valoriza quem você formou.',
         seg2body: 'Guarde o histórico de cada atleta e de cada categoria, temporada após temporada, em uma conta só. Quando chegar a hora da negociação no mercado profissional ou europeu você terá o acervo de vídeos e jogos que valorizam o seu jogador.',
         seg2punch: 'Formar dá trabalho. Comprovar dá retorno.',
         seg3kicker: 'Para equipes profissionais', seg3title: 'A leitura do jogo, pronta para a comissão.',
-        seg3body: 'Toda equipe profissional analisa desempenho. O ORBI entrega essa leitura pronta, com a precisão da IA, para a comissão técnica estudar o jogo:',
+        seg3body: 'Toda equipe profissional analisa desempenho. O ORION entrega essa leitura pronta, com a precisão da IA, para a comissão técnica estudar o jogo:',
         seg3list: ['Posse de bola quanto e em que momentos', 'Rede de passes quem se conecta com quem', 'Mapa de calor como o time ocupa o campo', 'Passes e perdas construção e onde a bola foi perdida', 'Análise de um time específico marque o adversário'],
         seg3note: 'E, em breve, com a câmera fixa: distância e velocidade por jogador, mapa tático em metros e transmissão ao vivo.',
         ctaEyebrow: 'Vagas limitadas por região',
-        ctaTitle: 'Leve o ORBI Analysis para o seu clube.',
-        ctaText: 'Agende uma demonstração prática e comprove o impacto direto do ORBI no desenvolvimento das suas categorias de base.',
+        ctaTitle: 'Leve o ORION Analysis para o seu clube.',
+        ctaText: 'Agende uma demonstração prática e comprove o impacto direto do ORION no desenvolvimento das suas categorias de base.',
         ctaNote: 'As vagas de instalação são limitadas por região.',
         ctaBtn1: 'Agendar jogo de teste', ctaBtn2: 'Falar no WhatsApp',
         loadingLabel: 'Carregando vídeo…',
         mediaSoonTitle: 'Vídeo demonstrativo em breve',
-        mediaSoonDesc: 'Me envie o vídeo demonstrativo do ORBI ele aparece aqui e também toca no topo desta página.',
+        mediaSoonDesc: 'Me envie o vídeo demonstrativo do ORION ele aparece aqui e também toca no topo desta página.',
       },
       en: {
         heroEyebrow: 'AI game analysis',
         heroA: 'Talent isn\u2019t lost. ', heroKey: 'It\u2019s recorded', heroB: '',
         heroSub: 'AI-powered game analysis and athlete development. Video, data and a history of progress for academies and clubs that treat the base as a profession.',
-        heroCta1: 'Activate your analysis', heroCta2: 'See ORBI inside',
+        heroCta1: 'Activate your analysis', heroCta2: 'See ORION inside',
         heroTrust: 'Made in Brazil · Support in Portuguese',
         mockLive: 'Live telemetry', mockTrend: '+16%', mockTrendLabel: 'this season',
         mockPlayer: '#10', mockSpeed: '11.4 km/h',
@@ -585,25 +585,25 @@ class Component extends DCLogic {
         probEyebrow: '// The problem',
         probTitle: 'Youth football plays in the dark.',
         probLead: 'Small academies and clubs aren\u2019t televised. With no footage and no history, all that\u2019s left is the memory of whoever was there, and memory fails. How many good players have been lost simply because no one kept their story?',
-        probWatch: 'Watch the video', probWatchSub: 'Commercial video · ORBI',
+        probWatch: 'Watch the video', probWatchSub: 'Commercial video · ORION',
         problems: [
           { icon: 'videooff', title: 'No broadcast', desc: 'No professional camera covers youth games. What wasn\u2019t recorded, no one reviews.' },
           { icon: 'database', title: 'No database', desc: 'There\u2019s no record of the athlete\u2019s progress. Every season starts from scratch.' },
           { icon: 'imageoff', title: 'No video to analyze', desc: 'With no footage, coach and director have no way to analyze performance.' },
         ],
-        pEyebrow: 'ORBI Analysis',
+        pEyebrow: 'ORION Analysis',
         hTitleA: 'The whole game, ', hKey: 'as data', hTitleB: '.',
         hSub: 'AI-powered game analysis to reveal, track and grow every athlete from U-11 to the pros.',
         pLiveTag: '// Demo video',
-        vWatch: 'Watch with sound', vTag: 'ORBI on the pitch',
-        introLeadA: 'ORBI Analysis turns every match your club plays into ',
+        vWatch: 'Watch with sound', vTag: 'ORION on the pitch',
+        introLeadA: 'ORION Analysis turns every match your club plays into ',
         introBold: 'video, analysis and history',
         introLeadB: ' in your club\u2019s account, with no camera operator and no hassle. Below, see how it works and what it delivers for each kind of club.',
         whyEyebrow: '// The context',
-        whyTitle: 'Why ORBI exists.',
+        whyTitle: 'Why ORION exists.',
         whyP1: 'Youth competitions U-13, U-15, U-17 aren\u2019t televised, and recordings, when they exist, are amateur. With no quality footage and no history, it\u2019s impossible to prove an athlete\u2019s progress.',
         whyP2: 'Without that record, the academy kid can\u2019t earn a spot in a club\u2019s ranks, and the club can\u2019t showcase the player it developed.',
-        whyPunchA: 'ORBI turns intuition into evidence: real data drives ', whyPunchB: 'the constant evolution of the base.',
+        whyPunchA: 'ORION turns intuition into evidence: real data drives ', whyPunchB: 'the constant evolution of the base.',
         howEyebrow: '// How it works',
         howTitle: 'Two cameras. The whole game, no operator.',
         howLead: 'Two cameras stitch together into a panoramic video of the entire pitch, while the AI camera follows the action on its own. Every key play is tagged automatically click the marker and see ten seconds before and after. Everything is stored on the web platform, in your club\u2019s account.',
@@ -624,31 +624,31 @@ class Component extends DCLogic {
         f8t: 'Web platform', f8d: 'Club account: upload, watch, download and full match history.',
         soonBadge: 'Coming soon · fixed camera',
         soonTitle: 'The next phase adds the physical and tactical game.',
-        soonLead: 'With the fixed camera, ORBI also reads the game at a physical and tactical level.',
+        soonLead: 'With the fixed camera, ORION also reads the game at a physical and tactical level.',
         s1t: 'Shots on goal', s1d: 'Detected automatically.',
         s2t: 'Distance & speed', s2d: 'Per player, across the match.',
         s3t: 'Tactical map in meters', s3d: 'Top-down view, at real scale.',
         s4t: 'Live broadcast', s4d: 'The game in real time.',
         whoEyebrow: '// For your club',
-        whoTitle: 'An ORBI for every kind of club.',
+        whoTitle: 'An ORION for every kind of club.',
         seg1kicker: 'For academies', seg1title: 'Talent with no record opens no doors.',
-        seg1body: 'With ORBI, every match becomes an archive: each student\u2019s best moments, ready to present to clubs. It\u2019s the material that puts your kid ahead in the race for a spot and sets your academy apart from every other in the region.',
+        seg1body: 'With ORION, every match becomes an archive: each student\u2019s best moments, ready to present to clubs. It\u2019s the material that puts your kid ahead in the race for a spot and sets your academy apart from every other in the region.',
         seg1punch: 'Proof in hand, not a promise.',
         seg2kicker: 'For clubs and youth ranks', seg2title: 'The history that values who you developed.',
         seg2body: 'Keep the history of every athlete and every age group, season after season, in a single account. When it\u2019s time to negotiate in the pro or European market you\u2019ll have the video archive and match history that raise your player\u2019s value.',
         seg2punch: 'Developing is work. Proof is the payoff.',
         seg3kicker: 'For professional teams', seg3title: 'The read of the game, ready for your staff.',
-        seg3body: 'Every professional team analyzes performance. ORBI delivers that read ready-made, with the precision of AI, for your technical staff to study the game:',
+        seg3body: 'Every professional team analyzes performance. ORION delivers that read ready-made, with the precision of AI, for your technical staff to study the game:',
         seg3list: ['Possession how much and when', 'Pass network who connects with whom', 'Heatmap how the team occupies the pitch', 'Passes & turnovers build-up and where the ball was lost', 'Single-team analysis tag the opponent'],
         seg3note: 'And soon, with the fixed camera: distance and speed per player, tactical map in meters and live broadcast.',
         ctaEyebrow: 'Limited slots per region',
-        ctaTitle: 'Bring ORBI Analysis to your club.',
-        ctaText: 'Book a hands-on demo and see for yourself the direct impact ORBI has on the development of your youth ranks.',
+        ctaTitle: 'Bring ORION Analysis to your club.',
+        ctaText: 'Book a hands-on demo and see for yourself the direct impact ORION has on the development of your youth ranks.',
         ctaNote: 'Installation slots are limited by region.',
         ctaBtn1: 'Book a test match', ctaBtn2: 'Chat on WhatsApp',
         loadingLabel: 'Loading video…',
         mediaSoonTitle: 'Demo video coming soon',
-        mediaSoonDesc: 'Send me the ORBI demo video it appears here and plays at the top of this page.',
+        mediaSoonDesc: 'Send me the ORION demo video it appears here and plays at the top of this page.',
       },
     }[lang];
     return { lang, hasVideo, videoReady, loadingLocal, noMedia, ytBgUrl, ytModalUrl, localSrc, videoOpen: this.state.videoOpen, openVideo: () => this.setState({ videoOpen: true }), closeVideo: () => this.setState({ videoOpen: false }), stopProp: (e) => e.stopPropagation(), loopBg: (e) => { try { e.target.currentTime = 0; e.target.play(); } catch (x) {} }, ...S };
