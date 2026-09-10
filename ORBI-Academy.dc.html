@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ORBI Academy sua escolinha inteira em um app | Esporte em Rota</title>
+<title>ORION Academy sua escolinha inteira em um app | Esporte em Rota</title>
 <meta name="description" content="Gestão que organiza a sua escolinha e cursos que ensinam a fazê-la crescer. Matrícula online, financeiro, chamada, treinos, viagens e comunicação com os pais em um app só." />
 <link rel="icon" href="assets/er-logo.png" />
 <link rel="stylesheet" href="styles.css" />
@@ -34,7 +34,7 @@
 
   <div style="position:relative;max-width:900px;margin:0 auto;text-align:center;">
     <div data-reveal style="display:inline-flex;align-items:center;gap:10px;padding:7px 15px;border-radius:var(--radius-pill);border:1px solid var(--border-strong);background:var(--surface-inset);margin-bottom:24px;">
-      <img src="assets/orbi-icon.png" alt="ORBI" style="width:20px;height:20px;display:block;" />
+      <img src="assets/orbi-icon.png" alt="ORION" style="width:20px;height:20px;display:block;" />
       <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--cyan-400);">{{ eyebrow }}</span>
     </div>
     <h1 data-reveal data-delay="70" style="font-family:var(--font-display);font-weight:700;font-size:clamp(34px,5.4vw,62px);line-height:1.04;letter-spacing:var(--tracking-tight);color:var(--text-strong);margin:0 auto 18px;max-width:18ch;">{{ hTitleA }}<span style="background:var(--grad-holo);-webkit-background-clip:text;background-clip:text;color:transparent;">{{ hKey }}</span></h1>
@@ -50,7 +50,7 @@
         <div style="position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 40%,#0c2129,#05070d);"></div>
       </sc-if>
       <sc-if value="{{ noMedia }}" hint-placeholder-val="{{ false }}">
-        <image-slot id="academy-demo" shape="rect" fit="cover" placeholder="Solte um vídeo ou still do app ORBI Academy"></image-slot>
+        <image-slot id="academy-demo" shape="rect" fit="cover" placeholder="Solte um vídeo ou still do app ORION Academy"></image-slot>
       </sc-if>
       <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,10,16,.4) 0%,rgba(4,10,16,0) 30%,rgba(4,10,16,.55) 100%);"></div>
       <span style="position:absolute;top:16px;left:16px;width:30px;height:30px;border-top:2px solid var(--cyan-400);border-left:2px solid var(--cyan-400);opacity:.85;pointer-events:none;"></span>
@@ -317,11 +317,11 @@ class Component extends DCLogic {
 
     const S = {
       pt: {
-        eyebrow: 'ORBI Academy',
+        eyebrow: 'ORION Academy',
         hTitleA: 'Sua escolinha inteira ', hKey: 'em um app.',
         hSub: 'Gestão que organiza a sua escolinha. Cursos que ensinam a fazê-la crescer.',
         videoTag: '// Conheça o app', watch: 'Assistir', loadingLabel: 'Carregando vídeo…',
-        intro: 'O ORBI Academy tem dois lados que trabalham juntos: um app que organiza a sua escolinha inteira e cursos que ensinam você a fazê-la crescer.',
+        intro: 'O ORION Academy tem dois lados que trabalham juntos: um app que organiza a sua escolinha inteira e cursos que ensinam você a fazê-la crescer.',
         appEyebrow: '// O app que organiza',
         appTitle: 'Tudo o que a sua escolinha precisa, em um lugar só.',
         appItems: [
@@ -348,7 +348,7 @@ class Component extends DCLogic {
         whyItems: [
           { icon: 'heart', title: 'Fala também com o pai', desc: 'Frequência, evolução e vídeos do filho no app do responsável.' },
           { icon: 'seedling', title: 'Nasceu dentro do futebol', desc: 'Não é um sistema genérico adaptado.' },
-          { icon: 'link', title: 'Conecta com o ORBI Analysis', desc: 'Gestão e análise no mesmo ecossistema.' },
+          { icon: 'link', title: 'Conecta com o ORION Analysis', desc: 'Gestão e análise no mesmo ecossistema.' },
         ],
         planEyebrow: '// Escolha o seu plano',
         planTitle: 'Escolha o seu plano.',
@@ -359,7 +359,7 @@ class Component extends DCLogic {
         plans: [
           { kicker: 'Plano Essencial', name: 'Essencial', desc: 'O essencial para colocar a escolinha em ordem.', price: 'R$ 147', limit: 'até 75', support: 'por e-mail', featured: false },
           { kicker: 'Plano Profissional', name: 'Profissional', desc: 'Gestão completa: financeiro, avaliações e viagens.', price: 'R$ 277', limit: '120', support: 'prioritário', featured: true },
-          { kicker: 'Plano Premium', name: 'Premium', desc: 'Tudo, mais jogo ao vivo e os cursos ORBI Academy.', price: 'R$ 447', limit: 'ilimitado', support: 'prioritário + consultoria', featured: false },
+          { kicker: 'Plano Premium', name: 'Premium', desc: 'Tudo, mais jogo ao vivo e os cursos ORION Academy.', price: 'R$ 447', limit: 'ilimitado', support: 'prioritário + consultoria', featured: false },
         ],
         features: [
           { label: 'Alunos, turmas e matrícula online', c1: '✓', c2: '✓', c3: '✓' },
@@ -375,21 +375,21 @@ class Component extends DCLogic {
           { label: 'Boletim de evolução do aluno', c1: '—', c2: '✓', c3: '✓' },
           { label: 'Gestão de equipe e permissões', c1: '—', c2: '✓', c3: '✓' },
           { label: 'Minutagem – Tempo de jogo por atleta', c1: '—', c2: '—', c3: '✓' },
-          { label: 'Cursos ORBI Academy (vendas, marketing, gestão)', c1: '—', c2: '—', c3: '✓' },
+          { label: 'Cursos ORION Academy (vendas, marketing, gestão)', c1: '—', c2: '—', c3: '✓' },
           { label: 'Landing page', c1: '—', c2: '1 por ano', c3: '3 por ano' },
           { label: 'Arte para redes sociais', c1: '—', c2: '1 por mês', c3: '5 por mês' },
         ],
         planNote: 'Limite de alunos e nível de suporte variam por plano, como mostrado acima. Preços em definição.',
-        ctaTitle: 'Leve o ORBI Academy para a sua escolinha.',
+        ctaTitle: 'Leve o ORION Academy para a sua escolinha.',
         ctaBtn1: 'Agendar demonstração', ctaBtn2: 'Falar no WhatsApp',
-        mediaSoonTitle: 'Vídeo em breve', mediaSoonDesc: 'Me envie o vídeo do app ORBI Academy e ele aparece aqui, tocando em tela cheia.',
+        mediaSoonTitle: 'Vídeo em breve', mediaSoonDesc: 'Me envie o vídeo do app ORION Academy e ele aparece aqui, tocando em tela cheia.',
       },
       en: {
-        eyebrow: 'ORBI Academy',
+        eyebrow: 'ORION Academy',
         hTitleA: 'Your whole academy ', hKey: 'in one app.',
         hSub: 'Management that organizes your academy. Courses that teach you how to grow it.',
         videoTag: '// Meet the app', watch: 'Watch', loadingLabel: 'Loading video…',
-        intro: 'ORBI Academy has two sides that work together: an app that organizes your whole academy and courses that teach you how to grow it.',
+        intro: 'ORION Academy has two sides that work together: an app that organizes your whole academy and courses that teach you how to grow it.',
         appEyebrow: '// The app that organizes',
         appTitle: 'Everything your academy needs, in one place.',
         appItems: [
@@ -416,7 +416,7 @@ class Component extends DCLogic {
         whyItems: [
           { icon: 'heart', title: 'It talks to parents too', desc: 'Attendance, progress and the kid\u2019s videos in the parent\u2019s app.' },
           { icon: 'seedling', title: 'Born inside football', desc: 'Not a generic system adapted to fit.' },
-          { icon: 'link', title: 'Connects with ORBI Analysis', desc: 'Management and analysis in one ecosystem.' },
+          { icon: 'link', title: 'Connects with ORION Analysis', desc: 'Management and analysis in one ecosystem.' },
         ],
         planEyebrow: '// Choose your plan',
         planTitle: 'Choose your plan.',
@@ -427,7 +427,7 @@ class Component extends DCLogic {
         plans: [
           { kicker: 'Essential plan', name: 'Essential', desc: 'The essentials to get your academy in order.', price: 'R$ 147', limit: 'up to 75', support: 'email', featured: false },
           { kicker: 'Professional plan', name: 'Professional', desc: 'Full management: finance, assessments and trips.', price: 'R$ 277', limit: '120', support: 'priority', featured: true },
-          { kicker: 'Premium plan', name: 'Premium', desc: 'Everything, plus live match control and ORBI Academy courses.', price: 'R$ 447', limit: 'unlimited', support: 'priority + consulting', featured: false },
+          { kicker: 'Premium plan', name: 'Premium', desc: 'Everything, plus live match control and ORION Academy courses.', price: 'R$ 447', limit: 'unlimited', support: 'priority + consulting', featured: false },
         ],
         features: [
           { label: 'Students, classes and online enrollment', c1: '✓', c2: '✓', c3: '✓' },
@@ -443,14 +443,14 @@ class Component extends DCLogic {
           { label: 'Student progress report', c1: '—', c2: '✓', c3: '✓' },
           { label: 'Team management and permissions', c1: '—', c2: '✓', c3: '✓' },
           { label: 'Minutes played – Game time per athlete', c1: '—', c2: '—', c3: '✓' },
-          { label: 'ORBI Academy courses (sales, marketing, management)', c1: '—', c2: '—', c3: '✓' },
+          { label: 'ORION Academy courses (sales, marketing, management)', c1: '—', c2: '—', c3: '✓' },
           { label: 'Landing page', c1: '—', c2: '1 per year', c3: '3 per year' },
           { label: 'Social media artwork', c1: '—', c2: '1 per month', c3: '5 per month' },
         ],
         planNote: 'Student limit and support level vary by plan, as shown above. Pricing to be defined.',
-        ctaTitle: 'Bring ORBI Academy to your academy.',
+        ctaTitle: 'Bring ORION Academy to your academy.',
         ctaBtn1: 'Book a demo', ctaBtn2: 'Chat on WhatsApp',
-        mediaSoonTitle: 'Video coming soon', mediaSoonDesc: 'Send me the ORBI Academy app video and it shows up here, playing full-screen.',
+        mediaSoonTitle: 'Video coming soon', mediaSoonDesc: 'Send me the ORION Academy app video and it shows up here, playing full-screen.',
       },
     }[lang];
 
