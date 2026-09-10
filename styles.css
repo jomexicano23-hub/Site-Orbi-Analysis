@@ -1,4 +1,4 @@
-/* ORBI Analysis — Design System
+/* ORION Analysis — Design System
    Global entry point. Consumers link THIS file only.
    Contains @import lines exclusively — all rules live in the imported files. */
 @import url('tokens/fonts.css');
