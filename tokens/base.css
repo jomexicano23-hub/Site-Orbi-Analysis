@@ -1,4 +1,4 @@
-/* ORBI Analysis — Base reset & element defaults (imported last from styles.css) */
+/* ORION Analysis — Base reset & element defaults (imported last from styles.css) */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
 html { -webkit-text-size-adjust: 100%; }
