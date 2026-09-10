@@ -1,6 +1,6 @@
-# Esporte em Rota — ORBI (site)
+# Esporte em Rota — ORION (site)
 
-Site institucional bilíngue (PT/EN, atualmente fixado em PT) da **Esporte em Rota**, com os produtos **ORBI Analysis**, **ORBI Academy** e **ORBI Go**.
+Site institucional bilíngue (PT/EN, atualmente fixado em PT) da **Esporte em Rota**, com os produtos **ORION Analysis**, **ORION Academy** e **ORION Go**.
 
 ## Como abrir no Claude Code
 
@@ -21,13 +21,13 @@ Site institucional bilíngue (PT/EN, atualmente fixado em PT) da **Esporte em Ro
 | Arquivo | Página |
 |---|---|
 | `Home.dc.html` | Home (institucional + vídeo de fundo) |
-| `ORBI-Analysis.dc.html` | ORBI Analysis (produto de análise) |
-| `ORBI-Academy.dc.html` | ORBI Academy (gestão + cursos) |
-| `Camera.dc.html` | ORBI Go (locação sob demanda) |
+| `ORION-Analysis.dc.html` | ORION Analysis (produto de análise) |
+| `ORION-Academy.dc.html` | ORION Academy (gestão + cursos) |
+| `Camera.dc.html` | ORION Go (locação sob demanda) |
 | `Sobre.dc.html` | Sobre / história do José Mexicano |
 | `Contato.dc.html` | Contato (WhatsApp, e-mail, Instagram) |
-| `Ativar-Analise.dc.html` | Agendamento ORBI Analysis (form + contador 3 min) |
-| `Agendar-Academy.dc.html` | Agendamento ORBI Academy (form próprio) |
+| `Ativar-Analise.dc.html` | Agendamento ORION Analysis (form + contador 3 min) |
+| `Agendar-Academy.dc.html` | Agendamento ORION Academy (form próprio) |
 
 **Compartilhados:** `SiteHeader.dc.html` (nav + seletor de idioma) e `SiteFooter.dc.html`, importados por todas as páginas via `<dc-import>`.
 
@@ -55,6 +55,6 @@ Tema escuro "holográfico/HUD". Paleta principal: aqua-cyan `#00EEDD`, azul `#17
 
 ## Pendências
 
-- [ ] Trocar o vídeo do ORBI pela versão comercial sem marca d'água (hoje usa `assets/video-2.mp4`; trocável pelos tweaks `demoVideoSrc` / `demoYouTubeId`).
-- [ ] Preencher o preço `[valor]` do pacote base do ORBI Go em `Camera.dc.html`.
+- [ ] Trocar o vídeo do ORION pela versão comercial sem marca d'água (hoje usa `assets/video-2.mp4`; trocável pelos tweaks `demoVideoSrc` / `demoYouTubeId`).
+- [ ] Preencher o preço `[valor]` do pacote base do ORION Go em `Camera.dc.html`.
 - [ ] Conectar o envio dos formulários a um destino real (e-mail, planilha ou WhatsApp/CRM).
