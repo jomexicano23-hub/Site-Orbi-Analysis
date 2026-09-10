@@ -9,8 +9,8 @@
 <x-dc>
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ative sua análise ORBI Analysis | Esporte em Rota</title>
-<meta name="description" content="Veja o ORBI Analysis com o seu próprio jogo. Agende uma demonstração rápida e sem compromisso. Vagas de instalação limitadas por região." />
+<title>Ative sua análise ORION Analysis | Esporte em Rota</title>
+<meta name="description" content="Veja o ORION Analysis com o seu próprio jogo. Agende uma demonstração rápida e sem compromisso. Vagas de instalação limitadas por região." />
 <link rel="icon" href="assets/er-logo.png" />
 <link rel="stylesheet" href="styles.css" />
 <script src="er.js"></script>
@@ -216,8 +216,8 @@ class Component extends DCLogic {
     const f = this.state.form;
     const waDigits = '5511944911475';
     const waText = encodeURIComponent(lang === 'en'
-      ? 'Hi! I\u2019d like to schedule an ORBI Analysis demo with my club\u2019s own game.'
-      : 'Olá! Quero agendar uma demonstração do ORBI Analysis com o jogo do meu clube.');
+      ? 'Hi! I\u2019d like to schedule an ORION Analysis demo with my club\u2019s own game.'
+      : 'Olá! Quero agendar uma demonstração do ORION Analysis com o jogo do meu clube.');
     const waHref = 'https://wa.me/' + waDigits + '?text=' + waText;
     const inBase = 'width:100%;height:48px;padding:0 15px;font-family:var(--font-sans);font-size:15px;color:var(--text-strong);background:var(--surface-inset);border:1px solid var(--border);border-radius:var(--radius-input);outline:none;transition:var(--transition-base);box-sizing:border-box;';
     const errBorder = this.state.error ? 'border-color:rgba(230,78,78,.5);' : '';
@@ -226,8 +226,8 @@ class Component extends DCLogic {
 
     const T = {
       pt: {
-        eyebrow: 'ORBI Analysis',
-        titleA: 'Veja o ORBI Analysis com o seu ', titleKey: 'próprio jogo', titleB: '.',
+        eyebrow: 'ORION Analysis',
+        titleA: 'Veja o ORION Analysis com o seu ', titleKey: 'próprio jogo', titleB: '.',
         subtitle: 'Agende uma reunião rápida e descubra, na prática, como transformar cada partida da sua base em vídeo, análise e histórico. Sem compromisso.',
         perks: ['Demonstração com o próprio jogo do seu clube', 'Reunião rápida, online, no seu horário', 'Retorno em até 24 horas'],
         waTitle: 'Prefere não preencher?', waSub: 'Fale agora no WhatsApp',
@@ -241,13 +241,13 @@ class Component extends DCLogic {
         submitBtn: 'Agendar demonstração',
         formNote: 'Retorno em até 24 h · vagas de instalação limitadas por região',
         okTitle: 'Vaga garantida!',
-        okBody: 'Recebemos seus dados. Nossa equipe entra em contato em breve para agendar a sua demonstração do ORBI Analysis.',
-        okWa: 'Adiantar pelo WhatsApp', okBack: 'Voltar ao ORBI Analysis',
+        okBody: 'Recebemos seus dados. Nossa equipe entra em contato em breve para agendar a sua demonstração do ORION Analysis.',
+        okWa: 'Adiantar pelo WhatsApp', okBack: 'Voltar ao ORION Analysis',
         trustLine: 'Seus dados são usados apenas para o contato do agendamento.',
       },
       en: {
-        eyebrow: 'ORBI Analysis',
-        titleA: 'See ORBI Analysis with your ', titleKey: 'own game', titleB: '.',
+        eyebrow: 'ORION Analysis',
+        titleA: 'See ORION Analysis with your ', titleKey: 'own game', titleB: '.',
         subtitle: 'Book a quick meeting and discover, in practice, how to turn every match your base plays into video, analysis and history. No commitment.',
         perks: ['A demo with your club\u2019s own game', 'Quick online meeting, on your schedule', 'We get back to you within 24 hours'],
         waTitle: 'Rather not fill it in?', waSub: 'Talk now on WhatsApp',
@@ -261,8 +261,8 @@ class Component extends DCLogic {
         submitBtn: 'Book demo',
         formNote: 'Reply within 24 h · installation slots limited by region',
         okTitle: 'Slot secured!',
-        okBody: 'We\u2019ve received your details. Our team will contact you shortly to schedule your ORBI Analysis demo.',
-        okWa: 'Speed things up on WhatsApp', okBack: 'Back to ORBI Analysis',
+        okBody: 'We\u2019ve received your details. Our team will contact you shortly to schedule your ORION Analysis demo.',
+        okWa: 'Speed things up on WhatsApp', okBack: 'Back to ORION Analysis',
         trustLine: 'Your details are used only to arrange the demo.',
       },
     }[lang];
